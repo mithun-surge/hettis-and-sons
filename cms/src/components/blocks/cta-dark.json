@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_blocks_cta_darks",
+  "info": { "displayName": "CTA Dark (centered banner)", "icon": "bell" },
+  "options": {},
+  "attributes": {
+    "eyebrow": { "type": "string" },
+    "heading": { "type": "string", "required": true },
+    "button": { "type": "component", "component": "shared.button", "repeatable": false }
+  }
+}

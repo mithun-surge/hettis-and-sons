@@ -1,0 +1,22 @@
+---
+import type { Faq } from '../lib/types';
+
+interface Props {
+  faqs: Faq[];
+}
+const { faqs } = Astro.props as Props;
+---
+
+<div class="faq">
+  {faqs.map((f) => (
+    <details class="qa reveal">
+      <summary>
+        {f.question}
+        <span class="pm" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </span>
+      </summary>
+      <div class="ans">{f.answer}</div>
+    </details>
+  ))}
+</div>

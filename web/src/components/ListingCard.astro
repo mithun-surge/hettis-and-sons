@@ -1,0 +1,30 @@
+---
+import { mediaUrl } from '../lib/strapi';
+import type { Listing } from '../lib/types';
+
+interface Props extends Listing {}
+const { title, category, badge, description, image, ctaLabel } = Astro.props as Props;
+
+const categoryLabels: Record<string, string> = {
+  produce: 'Fresh produce',
+  'tea-spices': 'Tea & spices',
+  grains: 'Grains',
+  'agri-tech': 'Agri-tech',
+  logistics: 'Logistics',
+};
+---
+
+<article class="lcard reveal tilt-card" data-category={category}>
+  <div class="ph">
+    <img loading="lazy" decoding="async" src={mediaUrl(image)} alt={image?.alternativeText || title} />
+    <span class="cat">{categoryLabels[category] || category}</span>
+  </div>
+  <div class="body">
+    <h3>{title}</h3>
+    {description && <p>{description}</p>}
+    <div class="foot">
+      <span class="meta">{badge}</span>
+      <a href="/contact" class="go">{ctaLabel || 'Enquire'} →</a>
+    </div>
+  </div>
+</article>

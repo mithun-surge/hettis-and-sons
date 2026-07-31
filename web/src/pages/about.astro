@@ -1,0 +1,64 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SplitSection from '../components/SplitSection.astro';
+import BenefitCard from '../components/BenefitCard.astro';
+import TaggedCard from '../components/TaggedCard.astro';
+import CtaDark from '../components/CtaDark.astro';
+import { fetchAPI } from '../lib/strapi';
+import type { AboutPage } from '../lib/types';
+
+const about = await fetchAPI<AboutPage>('/about-page', {
+  populate: {
+    hero: { populate: '*' },
+    story: { populate: '*' },
+    missionValues: { populate: '*' },
+    differentiators: { populate: '*' },
+    ctaDark: { populate: '*' },
+    seo: { populate: '*' },
+  },
+});
+
+if (!about) {
+  return new Response('About page content not found in Strapi', { status: 404 });
+}
+---
+
+<MainLayout title={about.seo?.metaTitle || 'About'} description={about.seo?.metaDescription}>
+  <main>
+    <PageHero hero={about.hero} />
+
+    <section class="section">
+      <SplitSection
+        eyebrow={about.story.eyebrow}
+        heading={about.story.heading}
+        paragraph1={about.story.paragraph1}
+        paragraph2={about.story.paragraph2}
+        image={about.story.image}
+        reverse
+      />
+    </section>
+
+    <section class="section section--mist">
+      <div class="wrap">
+        <div class="grid grid-2">
+          {about.missionValues.map((m) => <BenefitCard icon={m.icon} title={m.title} text={m.text} />)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="head reveal">
+          {about.differentiatorsEyebrow && <span class="eyebrow">{about.differentiatorsEyebrow}</span>}
+          {about.differentiatorsHeading && <h2>{about.differentiatorsHeading}</h2>}
+        </div>
+        <div class="grid services-grid">
+          {about.differentiators.map((d) => <TaggedCard tag={d.tag} title={d.title} text={d.text} />)}
+        </div>
+      </div>
+    </section>
+
+    <CtaDark cta={about.ctaDark} />
+  </main>
+</MainLayout>

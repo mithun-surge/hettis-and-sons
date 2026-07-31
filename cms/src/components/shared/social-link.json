@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_social_links",
+  "info": { "displayName": "Social Link", "icon": "earth" },
+  "options": {},
+  "attributes": {
+    "platform": {
+      "type": "enumeration",
+      "enum": ["facebook", "instagram", "linkedin", "whatsapp", "twitter", "youtube"],
+      "required": true
+    },
+    "url": { "type": "string", "required": true }
+  }
+}

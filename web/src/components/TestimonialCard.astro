@@ -1,0 +1,15 @@
+---
+import type { Testimonial } from '../lib/types';
+
+interface Props extends Testimonial {}
+const { quote, name, role, avatarInitials, avatarColor, stars } = Astro.props as Props;
+---
+
+<article class="tcard reveal tilt-card">
+  <div class="stars">{'★'.repeat(stars || 5)}</div>
+  <blockquote>"{quote}"</blockquote>
+  <div class="who">
+    <div class="av" style={`background:${avatarColor || '#2D6A4F'}`}>{avatarInitials}</div>
+    <div><div class="nm">{name}</div><div class="rl">{role}</div></div>
+  </div>
+</article>

@@ -1,0 +1,46 @@
+---
+import { mediaUrl } from '../lib/strapi';
+import Icon from './Icon.astro';
+import Button from './Button.astro';
+import type { TickBlock, ButtonBlock } from '../lib/types';
+
+interface Props {
+  eyebrow?: string;
+  heading: string;
+  paragraph1?: string;
+  paragraph2?: string;
+  ticks?: TickBlock[];
+  image?: { url: string; alternativeText?: string | null };
+  badgeNumber?: string;
+  badgeLabel?: string;
+  button?: ButtonBlock;
+  reverse?: boolean;
+}
+const { eyebrow, heading, paragraph1, paragraph2, ticks, image, badgeNumber, badgeLabel, button, reverse = false } = Astro.props as Props;
+---
+
+<div class:list={['wrap', 'split', { rev: reverse }]}>
+  <div class="reveal">
+    {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+    <h2>{heading}</h2>
+    {paragraph1 && <p class="lead" style={paragraph2 ? 'margin-bottom:1rem' : undefined}>{paragraph1}</p>}
+    {paragraph2 && <p style="color:var(--muted)">{paragraph2}</p>}
+    {ticks && ticks.length > 0 && (
+      <ul class="ticks">
+        {ticks.map((t) => (
+          <li><Icon name="check" /> {t.text}</li>
+        ))}
+      </ul>
+    )}
+    {button?.label && <Button label={button.label} href={button.href} style={button.style} />}
+    <slot />
+  </div>
+  {image?.url && (
+    <div class="media img-reveal img-reveal-zoom">
+      <img loading="lazy" decoding="async" src={mediaUrl(image)} alt={image.alternativeText || ''} />
+      {badgeNumber && (
+        <div class="badge"><div class="n">{badgeNumber}</div><div class="l">{badgeLabel}</div></div>
+      )}
+    </div>
+  )}
+</div>

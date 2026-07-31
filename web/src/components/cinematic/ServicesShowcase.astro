@@ -1,0 +1,53 @@
+---
+import { mediaUrl } from '../../lib/strapi';
+import Icon from '../Icon.astro';
+import type { Service } from '../../lib/types';
+
+interface Props {
+  services: Service[];
+}
+const { services } = Astro.props as Props;
+---
+
+<section class="svc-cine svc-showcase">
+  <div class="svc-showcase-grid">
+    <div class="svc-showcase-left">
+      <div>
+        <h2 class="svc-showcase-heading split-reveal">Six services, one accountable partner.</h2>
+        <nav class="svc-nav-list" aria-label="Services">
+          {services.map((s, i) => (
+            <button type="button" class={`svc-nav-btn${i === 0 ? ' is-active' : ''}`} data-target={s.slug}>{s.title}</button>
+          ))}
+        </nav>
+      </div>
+      <div class="svc-showcase-cta">
+        <p>No middlemen, no guesswork — just sourcing and technology built by one team.</p>
+        <a href="/contact" class="btn btn-gold">Book a call <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="svc-cards">
+      {services.map((s) => (
+        <article class="svc-card" data-key={s.slug}>
+          <h3>{s.title}</h3>
+          {s.image?.url && (
+            <div class="svc-card-media cine-kenburns">
+              <img src={mediaUrl(s.image)} alt={s.image.alternativeText || s.title} loading="lazy" />
+            </div>
+          )}
+          {s.ticks?.length > 0 && (
+            <ul class="svc-card-ticks">
+              {s.ticks.map((t) => (
+                <li><Icon name="check" /> <span>{t.text}</span></li>
+              ))}
+            </ul>
+          )}
+          <a href={`/services/${s.slug}`} class="cine-card-more">
+            Learn more
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

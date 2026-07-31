@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_blocks_heroes",
+  "info": { "displayName": "Hero", "icon": "picture" },
+  "options": {},
+  "attributes": {
+    "eyebrow": { "type": "string" },
+    "heading": { "type": "string", "required": true },
+    "highlightWord": { "type": "string" },
+    "lead": { "type": "text" },
+    "image": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "stats": { "type": "component", "component": "shared.stat", "repeatable": true },
+    "buttons": { "type": "component", "component": "shared.button", "repeatable": true }
+  }
+}

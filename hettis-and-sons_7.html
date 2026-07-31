@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hetti's &amp; Sons — Agriculture &amp; IT in Sri Lanka | Farmers, Products &amp; Projects</title>
+<meta name="description" content="Hetti's & Sons connects Sri Lanka's local farmers with agriculture product purchasing companies — sourcing, logistics, quality and agri-tech, all from one partner. Book a call today." />
+<meta name="keywords" content="Hetti's, Farmer, Agriculture, Products, Projects, Sri Lanka, agri-tech, sourcing" />
+<meta name="author" content="Hetti's & Sons" />
+<meta name="theme-color" content="#1B4332" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Hetti's & Sons — Agriculture & IT" />
+<meta property="og:description" content="Connecting Sri Lanka's farmers with the companies that buy from them. Sourcing, logistics, quality and agri-tech from one partner." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#14241C;
+    --pine:#1B4332;
+    --forest:#2D6A4F;
+    --leaf:#40916C;
+    --gold:#E0A33A;
+    --gold-deep:#C2851F;
+    --paper:#F7F8F4;
+    --panel:#FFFFFF;
+    --mist:#E7EFE7;
+    --muted:#5C6B62;
+    --line:rgba(20,36,28,.12);
+    --line-strong:rgba(20,36,28,.22);
+    --shadow:0 1px 2px rgba(20,36,28,.04), 0 12px 32px -12px rgba(20,36,28,.18);
+    --shadow-lg:0 1px 2px rgba(20,36,28,.05), 0 30px 60px -24px rgba(20,36,28,.30);
+    --radius:18px;
+    --radius-sm:12px;
+    --display:"Bricolage Grotesque",system-ui,sans-serif;
+    --body:"Plus Jakarta Sans",system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+    --wrap:1200px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:var(--body);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer}
+  h1,h2,h3,h4{font-family:var(--display);line-height:1.05;letter-spacing:-.02em;margin:0;font-weight:700}
+
+  .wrap{width:min(var(--wrap),92vw);margin-inline:auto}
+  .section{padding:clamp(64px,9vw,116px) 0}
+  .section--dark{background:var(--pine);color:#EAF3EC}
+  .section--mist{background:var(--mist)}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--forest);
+    font-weight:500;
+    display:inline-flex;align-items:center;gap:.6em;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold)}
+  .section--dark .eyebrow{color:var(--gold)}
+  .cta-band .eyebrow{color:var(--gold)}
+  .lead{font-size:clamp(1.02rem,1.4vw,1.18rem);color:var(--muted);max-width:60ch}
+  .section--dark .lead{color:#BFD6C7}
+  /* phero paragraph: consistent soft colour + readable size on all inner pages */
+  .phero .wrap > p{color:#CFE2D6;max-width:58ch;font-size:clamp(1rem,1.4vw,1.14rem);line-height:1.65;margin-top:.9rem}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:.55em;
+    padding:.92em 1.5em;border-radius:999px;
+    font-weight:600;font-size:.95rem;border:1px solid transparent;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+    white-space:nowrap;
+  }
+  .btn .arr{transition:transform .18s ease}
+  .btn:hover .arr{transform:translateX(3px)}
+  .btn-gold{background:var(--gold);color:var(--ink);box-shadow:0 8px 22px -10px rgba(224,163,58,.8)}
+  .btn-gold:hover{background:var(--gold-deep);transform:translateY(-2px)}
+  .btn-pine{background:var(--pine);color:#fff}
+  .btn-pine:hover{background:var(--ink);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;border-color:var(--line-strong);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--pine);background:#fff}
+  .section--dark .btn-ghost,.cta-band .btn-ghost{border-color:rgba(255,255,255,.28);color:#fff}
+  .section--dark .btn-ghost:hover,.cta-band .btn-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.55);color:#fff}
+
+  /* ---------- Header ---------- */
+  header.site{
+    position:sticky;top:0;z-index:60;
+    border-bottom:1px solid transparent;
+    transition:border-color .25s ease, box-shadow .25s ease;
+  }
+  header.site::before{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:rgba(247,248,244,.82);
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  }
+  header.site.scrolled{border-bottom-color:var(--line);box-shadow:0 8px 26px -22px rgba(20,36,28,.5)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:1.5rem}
+  .brand{display:flex;align-items:center;gap:.65rem;font-family:var(--display);font-weight:800;font-size:1.18rem;letter-spacing:-.02em}
+  .brand .mark{width:38px;height:38px;flex:none}
+  .brand small{display:block;font-family:var(--mono);font-weight:400;font-size:.58rem;letter-spacing:.2em;color:var(--forest);text-transform:uppercase;margin-top:2px}
+  .primary-nav{display:flex;align-items:center}
+  .nav-links{display:flex;align-items:center;gap:.2rem;list-style:none;margin:0;padding:0}
+  .nav-links > li{position:relative}
+  .nav-links a,.sub-toggle{
+    font-family:inherit;font-size:.92rem;font-weight:500;color:var(--ink);
+    padding:.55em .85em;border-radius:999px;position:relative;background:transparent;border:0;
+    display:inline-flex;align-items:center;gap:.35em;
+    transition:color .15s ease, background .15s ease;
+  }
+  .nav-links a:hover,.sub-toggle:hover{background:var(--mist)}
+  .nav-links a[aria-current="page"],.sub-toggle[aria-current="true"]{color:var(--forest);background:var(--mist)}
+  .sub-toggle{cursor:pointer}
+  .sub-toggle .caret{width:13px;height:13px;transition:transform .2s ease;opacity:.7}
+  .nav-cta{display:flex;align-items:center;gap:.5rem}
+  .menu-btn{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:#fff;align-items:center;justify-content:center;color:var(--ink)}
+  .menu-btn svg{width:22px;height:22px}
+  .menu-close{display:none;width:46px;height:46px;border:1px solid rgba(255,255,255,.22);border-radius:12px;background:transparent;color:#fff;align-items:center;justify-content:center}
+  .menu-close svg{width:24px;height:24px}
+  .menu-head{display:none}
+  .nav-mobile-cta{display:none}
+  .nav-links .sub{list-style:none;margin:0;padding:.4rem}
+
+  /* ----- Desktop services dropdown ----- */
+  @media (min-width:921px){
+    .nav-links .sub{
+      position:absolute;top:calc(100% + 8px);left:0;min-width:252px;
+      background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-lg);
+      display:flex;flex-direction:column;gap:2px;
+      opacity:0;visibility:hidden;transform:translateY(8px);
+      transition:opacity .18s ease, transform .18s ease, visibility .18s;z-index:80;
+    }
+    .has-sub:hover .sub,
+    .has-sub:focus-within .sub,
+    .sub-toggle[aria-expanded="true"] ~ .sub{opacity:1;visibility:visible;transform:translateY(0)}
+    .has-sub:hover .sub-toggle .caret,
+    .sub-toggle[aria-expanded="true"] .caret{transform:rotate(180deg)}
+    .nav-links .sub a{padding:.62em .8em;border-radius:10px;font-size:.9rem;font-weight:500;width:100%}
+    .nav-links .sub a:hover{background:var(--mist)}
+    .nav-links .sub a[aria-current="page"]{color:var(--forest);background:var(--mist)}
+    .nav-links .sub .sub-head{
+      font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
+      color:var(--muted);padding:.5em .9em .3em;
+    }
+  }
+
+  /* ----- Mobile / tablet full-screen overlay ----- */
+  @media (max-width:920px){
+    .primary-nav{
+      position:fixed;inset:0;height:100dvh;width:100%;
+      flex-direction:column;align-items:stretch;
+      background:var(--ink);color:#fff;
+      padding:0;overflow-y:auto;z-index:70;
+      transform:translateX(100%);visibility:hidden;
+      will-change:transform;backface-visibility:hidden;
+      transition:transform .42s cubic-bezier(.16,1,.3,1), visibility 0s linear .42s;
+    }
+    .primary-nav.open{
+      transform:none;visibility:visible;
+      transition:transform .42s cubic-bezier(.16,1,.3,1), visibility 0s linear 0s;
+    }
+    .menu-head{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:1rem 6vw;border-bottom:1px solid rgba(255,255,255,.12);
+      position:sticky;top:0;background:var(--ink);z-index:2;
+    }
+    .menu-head .brand{color:#fff}
+    .menu-head .brand small{color:var(--gold)}
+    .menu-close{display:inline-flex}
+    .nav-links{flex-direction:column;align-items:stretch;gap:0;padding:1.2rem 6vw 3rem}
+    .nav-links > li{
+      opacity:0;transform:translateY(16px);
+      transition:opacity .45s ease, transform .45s ease;
+    }
+    .primary-nav.open .nav-links > li{opacity:1;transform:none}
+    .primary-nav.open .nav-links > li:nth-child(1){transition-delay:.06s}
+    .primary-nav.open .nav-links > li:nth-child(2){transition-delay:.12s}
+    .primary-nav.open .nav-links > li:nth-child(3){transition-delay:.18s}
+    .primary-nav.open .nav-links > li:nth-child(4){transition-delay:.24s}
+    .primary-nav.open .nav-links > li:nth-child(5){transition-delay:.30s}
+    .primary-nav.open .nav-links > li:nth-child(6){transition-delay:.36s}
+    .nav-links a,.sub-toggle{
+      color:#EAF3EC;font-size:1.32rem;font-weight:600;font-family:var(--display);letter-spacing:-.01em;
+      padding:.78em 0;border-radius:0;width:100%;justify-content:space-between;
+      border-bottom:1px solid rgba(255,255,255,.09);
+    }
+    .nav-links a:hover,.sub-toggle:hover{background:transparent;color:var(--gold)}
+    .nav-links a[aria-current="page"],.sub-toggle[aria-current="true"]{color:var(--gold);background:transparent}
+    .sub-toggle .caret{width:20px;height:20px;opacity:.9}
+    .sub-toggle[aria-expanded="true"] .caret{transform:rotate(180deg)}
+    .nav-links .sub{max-height:0;overflow:hidden;padding:0;transition:max-height .35s ease}
+    .sub-toggle[aria-expanded="true"] ~ .sub{max-height:660px}
+    .nav-links .sub li{border:0}
+    .nav-links .sub a{
+      font-family:var(--body);font-size:1.04rem;font-weight:500;color:#C2D9C9;
+      padding:.62em 0 .62em 1.1rem;border-bottom:1px solid rgba(255,255,255,.06);justify-content:flex-start;
+    }
+    .nav-links .sub a[aria-current="page"]{color:var(--gold)}
+    .nav-links .sub .sub-head{display:none}
+    .nav-mobile-cta{display:block;margin-top:1.5rem}
+    .nav-links .nav-mobile-cta a{
+      justify-content:center;background:var(--gold);color:var(--ink);
+      border-radius:999px;border:0;font-family:var(--display);padding:.85em 1em;
+    }
+    .nav-links .nav-mobile-cta a:hover{background:var(--gold-deep);color:var(--ink)}
+    .menu-btn{display:inline-flex}
+    .nav-cta .btn{display:none}
+    body.menu-open{overflow:hidden}
+  }
+
+  /* ---------- Page routing ---------- */
+  .page{display:none}
+  .page.active{display:block;animation:pageIn .5s ease both}
+  @keyframes pageIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  /* ---------- Contour signature ---------- */
+  .contour-band{height:60px;position:relative;overflow:hidden;color:var(--leaf);opacity:.5}
+  .contour-band svg{position:absolute;inset:0;width:100%;height:100%}
+  .section--dark .contour-band{color:#8FBFA3}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;background:var(--ink);color:#fff;overflow:hidden}
+  .hero-img{position:absolute;inset:0}
+  .hero-img img{width:100%;height:100%;object-fit:cover}
+  .hero-img::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(105deg, rgba(13,28,21,.94) 0%, rgba(20,40,28,.82) 42%, rgba(20,40,28,.45) 100%);}
+  .hero .contour-overlay{position:absolute;inset:0;color:#fff;opacity:.10;pointer-events:none}
+  .hero .contour-overlay svg{width:100%;height:100%}
+  .hero-inner{position:relative;z-index:2;padding:clamp(70px,12vw,140px) 0 clamp(60px,9vw,110px)}
+  .hero h1{font-size:clamp(2.5rem,6.4vw,4.7rem);font-weight:800;max-width:16ch;margin:.5rem 0 0}
+  .hero h1 em{font-style:normal;color:var(--gold)}
+  .hero p.lead{color:#CFE2D6;margin-top:1.4rem;font-size:clamp(1.05rem,1.6vw,1.28rem)}
+  .hero .actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.2rem}
+  .hero-stats{display:flex;flex-wrap:wrap;gap:2.4rem;margin-top:3.2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.16)}
+  .hero-stats .stat .n{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,3vw,2.3rem);color:#fff}
+  .hero-stats .stat .l{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#9FC2AB;margin-top:.2rem}
+
+  /* ---------- Trust strip ---------- */
+  .trust{background:#fff;border-bottom:1px solid var(--line)}
+  .trust .wrap{display:flex;align-items:center;gap:1.5rem 2.2rem;flex-wrap:wrap;justify-content:center;padding:1.4rem 0}
+  .trust .label{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .trust .chips{display:flex;gap:1.6rem;flex-wrap:wrap;justify-content:center}
+  .trust .chips span{font-weight:600;color:var(--forest);font-size:.95rem;opacity:.9}
+
+  /* ---------- Section headings ---------- */
+  .head{max-width:64ch}
+  .head h2{font-size:clamp(1.9rem,4vw,2.9rem);margin:.7rem 0 .8rem}
+  .head.center{margin-inline:auto;text-align:center}
+
+  /* ---------- Benefit cards ---------- */
+  .grid{display:grid;gap:1.4rem}
+  .benefits{grid-template-columns:repeat(3,1fr);margin-top:3rem}
+  .bcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:2rem 1.8rem;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease}
+  .bcard:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:transparent}
+  .bcard .ic{width:50px;height:50px;border-radius:14px;background:var(--mist);color:var(--forest);display:grid;place-items:center;margin-bottom:1.1rem}
+  .bcard .ic svg{width:26px;height:26px}
+  .bcard h3{font-size:1.28rem;margin-bottom:.5rem}
+  .bcard p{color:var(--muted);margin:0;font-size:.97rem}
+
+  /* ---------- Services preview / grid ---------- */
+  .services-grid{grid-template-columns:repeat(3,1fr);margin-top:3rem}
+  .scard{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.9rem 1.7rem;overflow:hidden;transition:transform .2s ease, box-shadow .2s ease}
+  .scard::before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--gold);transition:width .3s ease}
+  .scard:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .scard:hover::before{width:100%}
+  .scard .tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;color:var(--forest);text-transform:uppercase}
+  .scard h3{font-size:1.24rem;margin:.6rem 0 .55rem}
+  .scard p{color:var(--muted);font-size:.95rem;margin:0}
+  .scard .more{font-weight:600;color:var(--forest);font-size:.92rem;display:inline-flex;gap:.4em;align-items:center;margin-top:1.1rem}
+  .scard .more .arr{transition:transform .18s ease}
+  .scard:hover .more .arr{transform:translateX(3px)}
+
+  /* ---------- Split / about preview ---------- */
+  .split{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+  .split.rev{grid-template-columns:1fr 1.05fr}
+  .split .media{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:4/3}
+  .split .media img{width:100%;height:100%;object-fit:cover}
+  .split .media .badge{position:absolute;left:18px;bottom:18px;background:rgba(255,255,255,.94);backdrop-filter:blur(4px);border-radius:14px;padding:.8rem 1rem;box-shadow:var(--shadow);max-width:230px}
+  .split .media .badge .n{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--pine)}
+  .split .media .badge .l{font-size:.8rem;color:var(--muted)}
+  .split h2{font-size:clamp(1.8rem,3.6vw,2.7rem);margin:.7rem 0 1rem}
+  .ticks{list-style:none;margin:1.4rem 0 1.8rem;padding:0;display:grid;gap:.7rem}
+  .ticks li{display:flex;gap:.7rem;align-items:flex-start;font-size:.98rem}
+  .ticks li svg{flex:none;width:22px;height:22px;color:var(--leaf);margin-top:2px}
+
+  /* ---------- How it works ---------- */
+  .steps{counter-reset:step;display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:3rem}
+  .step{position:relative;padding:1.8rem 1.5rem;background:#fff;border:1px solid var(--line);border-radius:var(--radius)}
+  .step .num{font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;color:var(--gold-deep);font-weight:600}
+  .step h3{font-size:1.12rem;margin:.7rem 0 .45rem}
+  .step p{margin:0;color:var(--muted);font-size:.92rem}
+  .step::after{content:"";position:absolute;right:-.95rem;top:50%;width:1.2rem;height:2px;background:var(--line-strong)}
+  .steps .step:last-child::after{display:none}
+
+  /* ---------- Testimonials ---------- */
+  .tgrid{grid-template-columns:repeat(3,1fr);margin-top:3rem}
+  .tcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.9rem 1.7rem;display:flex;flex-direction:column;gap:1.1rem}
+  .section--mist .tcard{background:#fff}
+  .tcard .stars{color:var(--gold);letter-spacing:.12em;font-size:.9rem}
+  .tcard blockquote{margin:0;font-size:1.02rem;line-height:1.55}
+  .tcard .who{display:flex;align-items:center;gap:.75rem;margin-top:auto}
+  .tcard .av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:700;color:#fff;font-size:1rem;flex:none}
+  .tcard .who .nm{font-weight:600;font-size:.95rem}
+  .tcard .who .rl{font-size:.82rem;color:var(--muted)}
+
+  /* ---------- Final CTA ---------- */
+  .cta-band{position:relative;overflow:hidden;background:var(--pine);color:#fff;border-radius:clamp(20px,4vw,34px);padding:clamp(2.6rem,6vw,4.6rem)}
+  .cta-band .contour-overlay{position:absolute;inset:0;color:#fff;opacity:.10;pointer-events:none}
+  .cta-band .contour-overlay svg{width:100%;height:100%}
+  .cta-inner{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:2rem;align-items:center;justify-content:space-between}
+  .cta-band h2{font-size:clamp(1.9rem,4.2vw,3rem);max-width:18ch}
+  .cta-band p{color:#C6DCCD;margin:.8rem 0 0;max-width:46ch}
+
+  /* ---------- Page hero (inner pages) ---------- */
+  .phero{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+  .phero .contour-overlay{position:absolute;inset:0;color:#fff;opacity:.09}
+  .phero .contour-overlay svg{width:100%;height:100%}
+  .phero .wrap{position:relative;z-index:2;padding:clamp(56px,9vw,104px) 0 clamp(46px,7vw,80px)}
+  .phero h1{font-size:clamp(2.3rem,5.5vw,4rem);font-weight:800;max-width:18ch;margin-top:.6rem}
+  .phero p{color:#CFE2D6;max-width:58ch;margin-top:1rem;font-size:1.08rem}
+  .back-link{display:inline-flex;align-items:center;gap:.45em;font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:#9FC2AB;margin-bottom:.4rem}
+  .back-link:hover{color:#fff}
+  .phero .btn{margin-top:1.6rem}
+  .svc-explore{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
+  .svc-explore a{padding:.55em 1em;border-radius:999px;border:1px solid var(--line-strong);background:#fff;font-weight:600;font-size:.88rem;color:var(--ink);transition:all .18s ease}
+  .svc-explore a:hover{border-color:var(--forest);color:var(--forest)}
+
+  /* ---------- Listings ---------- */
+  .filterbar{display:flex;flex-wrap:wrap;gap:.6rem;margin:2.4rem 0 2.4rem}
+  .chip{padding:.6em 1.1em;border-radius:999px;border:1px solid var(--line-strong);background:#fff;font-weight:600;font-size:.9rem;color:var(--ink);transition:all .18s ease}
+  .chip:hover{border-color:var(--forest)}
+  .chip.active{background:var(--pine);border-color:var(--pine);color:#fff}
+  .listings{grid-template-columns:repeat(3,1fr)}
+  .lcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s ease, box-shadow .2s ease}
+  .lcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+  .lcard .ph{aspect-ratio:3/2;overflow:hidden;position:relative}
+  .lcard .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .lcard:hover .ph img{transform:scale(1.06)}
+  .lcard .cat{position:absolute;left:12px;top:12px;background:rgba(20,36,28,.82);color:#fff;font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;padding:.4em .7em;border-radius:8px}
+  .lcard .body{padding:1.4rem 1.4rem 1.5rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+  .lcard h3{font-size:1.18rem}
+  .lcard p{margin:0;color:var(--muted);font-size:.92rem;flex:1}
+  .lcard .foot{display:flex;align-items:center;justify-content:space-between;margin-top:.6rem}
+  .lcard .meta{font-family:var(--mono);font-size:.74rem;color:var(--forest)}
+  .lcard .go{font-weight:600;color:var(--forest);font-size:.9rem;display:inline-flex;gap:.35em;align-items:center}
+  .empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:3rem 0;display:none}
+
+  /* ---------- FAQ ---------- */
+  .faq{max-width:820px;margin:3rem auto 0;display:grid;gap:.8rem}
+  .qa{border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff;overflow:hidden}
+  .qa summary{list-style:none;cursor:pointer;padding:1.15rem 1.4rem;font-weight:600;font-size:1.04rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+  .qa summary::-webkit-details-marker{display:none}
+  .qa summary .pm{flex:none;width:24px;height:24px;border-radius:50%;background:var(--mist);color:var(--forest);display:grid;place-items:center;font-size:1.1rem;transition:transform .2s ease}
+  .qa[open] summary .pm{transform:rotate(45deg)}
+  .qa .ans{padding:0 1.4rem 1.25rem;color:var(--muted);font-size:.97rem}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,4vw,3.4rem);align-items:start}
+  form.lead-form{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:clamp(1.6rem,3vw,2.4rem);box-shadow:var(--shadow)}
+  .field{margin-bottom:1.1rem}
+  .field label{display:block;font-weight:600;font-size:.88rem;margin-bottom:.45rem}
+  .field input,.field textarea{
+    width:100%;padding:.85em 1em;border:1px solid var(--line-strong);border-radius:12px;
+    font-family:inherit;font-size:.98rem;background:var(--paper);color:var(--ink);transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--forest);box-shadow:0 0 0 3px rgba(45,106,79,.14);background:#fff}
+  .field textarea{resize:vertical;min-height:130px}
+  .field .err{color:#B23A2E;font-size:.8rem;margin-top:.35rem;display:none}
+  .field.invalid input,.field.invalid textarea{border-color:#B23A2E}
+  .field.invalid .err{display:block}
+  .form-note{font-size:.82rem;color:var(--muted);margin-top:.4rem}
+  .form-success{display:none;background:var(--mist);border:1px solid var(--leaf);border-radius:var(--radius);padding:1.4rem 1.5rem;color:var(--pine)}
+  .form-success.show{display:block}
+  .form-success strong{font-family:var(--display)}
+
+  .info-list{list-style:none;margin:0 0 1.6rem;padding:0;display:grid;gap:1.1rem}
+  .info-list li{display:flex;gap:.85rem;align-items:flex-start}
+  .info-list .ic{width:42px;height:42px;border-radius:12px;background:var(--mist);color:var(--forest);display:grid;place-items:center;flex:none}
+  .info-list .ic svg{width:20px;height:20px}
+  .info-list .k{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .info-list .v{font-weight:600}
+  .map{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);height:260px}
+  .map iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(.2) contrast(1.02)}
+  .socials{display:flex;gap:.6rem;margin-top:1.4rem}
+  .socials a{width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:#fff;display:grid;place-items:center;color:var(--forest);transition:all .18s ease}
+  .socials a:hover{background:var(--pine);color:#fff;border-color:var(--pine);transform:translateY(-2px)}
+  .socials svg{width:20px;height:20px}
+
+  /* ---------- Footer ---------- */
+  footer.site{background:var(--ink);color:#CDE0D4;padding:clamp(3rem,6vw,4.5rem) 0 2rem;position:relative;overflow:hidden}
+  footer.site .contour-overlay{position:absolute;inset:0;color:#fff;opacity:.06}
+  footer.site .contour-overlay svg{width:100%;height:100%}
+  .fgrid{position:relative;z-index:2;display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;gap:2.4rem}
+  footer.site .brand{color:#fff;margin-bottom:1rem}
+  footer.site .brand small{color:var(--gold)}
+  .fcol h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#8FB29C;font-weight:500;margin-bottom:1rem}
+  .fcol ul{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+  .fcol a,.fcol li{color:#B9D0C0;font-size:.94rem}
+  .fcol a:hover{color:#fff}
+  .fabout{color:#9FBBA9;font-size:.94rem;max-width:34ch;margin:0 0 1.2rem}
+  .fbottom{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;margin-top:2.6rem;padding-top:1.6rem;border-top:1px solid rgba(255,255,255,.12);font-size:.84rem;color:#88A593}
+  .fbottom a{color:#B9D0C0}
+
+  /* About mission/values 2-col grid — collapses to 1 on mobile */
+  .grid-2{grid-template-columns:1fr 1fr}
+  @media(max-width:640px){.grid-2{grid-template-columns:1fr}}
+  .reveal{opacity:0;transform:translateY(20px)}
+  .reveal.in{opacity:1;transform:none;transition:opacity .6s ease, transform .6s ease}
+
+  :focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:6px}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:960px){
+    .benefits,.services-grid,.tgrid,.listings{grid-template-columns:repeat(2,1fr)}
+    .steps{grid-template-columns:repeat(2,1fr)}
+    .steps .step::after{display:none}
+    .split,.split.rev{grid-template-columns:1fr}
+    .split .media{order:-1}
+    .contact-grid{grid-template-columns:1fr}
+    .fgrid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:560px){
+    .benefits,.services-grid,.tgrid,.listings,.steps{grid-template-columns:1fr}
+    .fgrid{grid-template-columns:1fr}
+    .hero-stats{gap:1.6rem}
+    .cta-inner{flex-direction:column;align-items:flex-start}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site" id="top">
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="Hetti's & Sons home">
+      <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect width="48" height="48" rx="12" fill="#1B4332"/>
+        <path d="M8 34c4-6 9-9 16-9s12 3 16 9" stroke="#40916C" stroke-width="2" stroke-linecap="round"/>
+        <path d="M11 29c3.4-4.6 7.4-7 13-7s9.6 2.4 13 7" stroke="#6FB68F" stroke-width="2" stroke-linecap="round"/>
+        <path d="M14.5 24.5c2.7-3.4 5.7-5.2 9.5-5.2s6.8 1.8 9.5 5.2" stroke="#A9D3BC" stroke-width="2" stroke-linecap="round"/>
+        <path d="M24 20c0-4 .4-7 3.6-9.4-.6 3.2.4 5 2.2 6.6" stroke="#E0A33A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="24" cy="20" r="1.7" fill="#E0A33A"/>
+      </svg>
+      <span>Hetti's &amp; Sons<small>Agriculture × IT</small></span>
+    </a>
+
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+      <div class="menu-head">
+        <span class="brand">
+          <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <rect width="48" height="48" rx="12" fill="#2D6A4F"/>
+            <path d="M8 34c4-6 9-9 16-9s12 3 16 9" stroke="#A9D3BC" stroke-width="2" stroke-linecap="round"/>
+            <path d="M11 29c3.4-4.6 7.4-7 13-7s9.6 2.4 13 7" stroke="#CDE8D8" stroke-width="2" stroke-linecap="round"/>
+            <path d="M24 20c0-4 .4-7 3.6-9.4-.6 3.2.4 5 2.2 6.6" stroke="#E0A33A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="24" cy="20" r="1.7" fill="#E0A33A"/>
+          </svg>
+          <span>Hetti's &amp; Sons<small>Agriculture × IT</small></span>
+        </span>
+        <button class="menu-close" id="menuClose" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+
+      <ul class="nav-links" id="navMenu">
+        <li><a href="#home" data-nav>Home</a></li>
+        <li><a href="#about" data-nav>About</a></li>
+        <li class="has-sub">
+          <button type="button" class="sub-toggle" id="servicesToggle" aria-expanded="false" aria-controls="servicesSub" aria-haspopup="true">
+            Services
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <ul class="sub" id="servicesSub" aria-label="Services">
+            <li class="sub-head" aria-hidden="true">Our services</li>
+            <li><a href="#services" data-nav>All services overview</a></li>
+            <li><a href="#service-sourcing" data-nav>Sourcing &amp; supply</a></li>
+            <li><a href="#service-farmers" data-nav>Farmer partnership</a></li>
+            <li><a href="#service-quality" data-nav>Grading &amp; quality control</a></li>
+            <li><a href="#service-logistics" data-nav>Logistics &amp; delivery</a></li>
+            <li><a href="#service-agritech" data-nav>Agri-tech &amp; data</a></li>
+            <li><a href="#service-it" data-nav>Custom IT projects</a></li>
+          </ul>
+        </li>
+        <li><a href="#listings" data-nav>Listings</a></li>
+        <li><a href="#contact" data-nav>Contact</a></li>
+        <li class="nav-mobile-cta"><a href="#contact" class="btn btn-gold" data-nav>Book a call <span class="arr">→</span></a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-gold" data-nav>Book a call <span class="arr">→</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HOME ===================== -->
+<main class="page active" id="home" data-page aria-label="Home">
+
+  <section class="hero">
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1470087167738-6aa485ff65dc?auto=format&fit=crop&w=2000&q=80" alt="Lush terraced green hills of Sri Lanka's central highlands at dawn" />
+    </div>
+    <div class="contour-overlay" aria-hidden="true">
+      <svg viewBox="0 0 1200 600" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.4">
+        <path d="M-50 480 C 250 380 450 520 700 430 S 1100 360 1260 440"/>
+        <path d="M-50 430 C 250 330 450 470 700 380 S 1100 310 1260 390"/>
+        <path d="M-50 380 C 250 280 450 420 700 330 S 1100 260 1260 340"/>
+        <path d="M-50 330 C 250 230 450 370 700 280 S 1100 210 1260 290"/>
+        <path d="M-50 280 C 250 180 450 320 700 230 S 1100 160 1260 240"/>
+        <path d="M-50 230 C 250 130 450 270 700 180 S 1100 110 1260 190"/>
+      </g></svg>
+    </div>
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Agriculture &amp; IT · Rooted in Kandy</span>
+      <h1>Connecting Sri Lanka's farmers to the <em>buyers who need them</em>.</h1>
+      <p class="lead">Hetti's &amp; Sons sources dependable agriculture products from a trusted farmer network — then handles grading, logistics and traceability with our own tech. One partner, from the field to your dock.</p>
+      <div class="actions">
+        <a href="#contact" class="btn btn-gold">Get a quote <span class="arr">→</span></a>
+        <a href="#listings" class="btn btn-ghost">Browse products &amp; projects</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="n">450+</div><div class="l">Partner farmers</div></div>
+        <div class="stat"><div class="n">9</div><div class="l">Districts served</div></div>
+        <div class="stat"><div class="n">98%</div><div class="l">On-time delivery</div></div>
+        <div class="stat"><div class="n">12+</div><div class="l">Product categories</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust">
+    <div class="wrap">
+      <span class="label">Trusted across the supply chain</span>
+      <div class="chips">
+        <span>Purchasing companies</span><span>Exporters</span><span>Cooperatives</span><span>Processors</span><span>Retailers</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Benefits -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow">Why Hetti's &amp; Sons</span>
+        <h2>Reliable supply, backed by data you can verify.</h2>
+        <p class="lead">We sit between the grower and the buyer so neither side carries the risk alone — fair prices for farmers, dependable quality for companies.</p>
+      </div>
+      <div class="grid benefits">
+        <article class="bcard reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 4 7 13 7 13s7-9 7-13a7 7 0 0 0-7-7Z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+          <h3>A real farmer network</h3>
+          <p>Direct relationships with 450+ growers mean better prices, steady volume, and supply you can plan around — not last-minute scrambling.</p>
+        </article>
+        <article class="bcard reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 13h4"/><path d="M9 21h6"/></svg></div>
+          <h3>Tech-backed traceability</h3>
+          <p>Every lot is logged, graded and tracked through our own system — so you get quality data, batch history and proof of origin on request.</p>
+        </article>
+        <article class="bcard reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h13l3 4v6h-3"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/><path d="M3 7v10h2.7"/></svg></div>
+          <h3>Field to delivery, one partner</h3>
+          <p>Sourcing, grading, logistics and IT under one roof. Fewer handoffs, clearer accountability, and a single number to call.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services preview -->
+  <section class="section section--mist">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow">What we do</span>
+        <h2>Two sides of one business — agriculture and IT.</h2>
+        <p class="lead">From bulk sourcing to custom software, here's how we help companies buy with confidence and help farmers sell with stability.</p>
+      </div>
+      <div class="grid services-grid">
+        <article class="scard reveal">
+          <span class="tag">Supply</span>
+          <h3>Sourcing &amp; supply</h3>
+          <p>Rice, tea, spices, fruit and fresh produce sourced in the volumes your business needs, at agreed grades and timelines.</p>
+          <a href="#service-sourcing" class="more" data-nav>Learn more <span class="arr">→</span></a>
+        </article>
+        <article class="scard reveal">
+          <span class="tag">Farmers</span>
+          <h3>Farmer partnership</h3>
+          <p>Fair, guaranteed offtake plus inputs and agronomy support — so local farmers grow with a buyer they can count on.</p>
+          <a href="#service-farmers" class="more" data-nav>Learn more <span class="arr">→</span></a>
+        </article>
+        <article class="scard reveal">
+          <span class="tag">Agri-Tech</span>
+          <h3>Agri-tech &amp; data</h3>
+          <p>Farm-management tools, crop and weather dashboards, and traceability systems that turn the field into clean, usable data.</p>
+          <a href="#service-agritech" class="more" data-nav>Learn more <span class="arr">→</span></a>
+        </article>
+      </div>
+      <div style="margin-top:2.4rem" class="reveal">
+        <a href="#services" class="btn btn-pine" data-nav>See all services <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About preview -->
+  <section class="section">
+    <div class="wrap split">
+      <div class="reveal">
+        <span class="eyebrow">Our story</span>
+        <h2>A family name growers and buyers both trust.</h2>
+        <p class="lead">Hetti's &amp; Sons started where most good things in Sri Lankan agriculture do — in the field, with farmers. Today we pair that ground-level relationship with modern IT, so the produce moves faster and the paperwork tells the truth.</p>
+        <ul class="ticks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Built on long-term farmer relationships, not one-off deals</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Our own technology for grading, tracking and reporting</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> A team that knows both the soil and the system</li>
+        </ul>
+        <a href="#about" class="btn btn-ghost" data-nav>More about us <span class="arr">→</span></a>
+      </div>
+      <div class="media reveal">
+        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1499848144902-af767f6d0c7f?auto=format&fit=crop&w=1100&q=80" alt="A farmer harvesting fresh green leaves by hand in a Sri Lankan field" />
+        <div class="badge"><div class="n">Field-first</div><div class="l">Every partnership starts with the farmer</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section section--mist">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="eyebrow">In their words</span>
+        <h2>What partners say about working with us.</h2>
+      </div>
+      <div class="grid tgrid">
+        <article class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>"Consistent grades, consistent timing. We've stopped chasing suppliers — Hetti's just delivers, and the batch reports make our audits painless."</blockquote>
+          <div class="who"><div class="av" style="background:#2D6A4F">RP</div><div><div class="nm">Ravindu Perera</div><div class="rl">Procurement, produce exporter</div></div></div>
+        </article>
+        <article class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>"As a small farmer, the guaranteed offtake changed everything. I plant knowing it will be bought, at a price agreed up front."</blockquote>
+          <div class="who"><div class="av" style="background:#E0A33A;color:#14241C">KS</div><div><div class="nm">Kamala Senanayake</div><div class="rl">Smallholder farmer, Matale</div></div></div>
+        </article>
+        <article class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>"They built us a traceability dashboard that connects straight to their supply. Agriculture people who actually understand software — rare."</blockquote>
+          <div class="who"><div class="av" style="background:#1B4332">NF</div><div><div class="nm">Nadeesha Fernando</div><div class="rl">Ops Lead, food processor</div></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <div class="contour-overlay" aria-hidden="true">
+          <svg viewBox="0 0 1200 400" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M-50 320 C 250 240 450 360 700 290 S 1100 230 1260 300"/>
+            <path d="M-50 280 C 250 200 450 320 700 250 S 1100 190 1260 260"/>
+            <path d="M-50 240 C 250 160 450 280 700 210 S 1100 150 1260 220"/>
+            <path d="M-50 200 C 250 120 450 240 700 170 S 1100 110 1260 180"/>
+            <path d="M-50 160 C 250 80 450 200 700 130 S 1100 70 1260 140"/>
+          </g></svg>
+        </div>
+        <div class="cta-inner">
+          <div>
+            <span class="eyebrow">Let's talk</span>
+            <h2>Tell us what you need to source — we'll bring the farmers.</h2>
+            <p>Whether you're buying by the tonne or growing to sell, a 15-minute call is the fastest way to start.</p>
+          </div>
+          <div class="actions" style="display:flex;gap:.8rem;flex-wrap:wrap">
+            <a href="#contact" class="btn btn-gold" data-nav>Book a call <span class="arr">→</span></a>
+            <a href="#services" class="btn btn-ghost" data-nav>Explore services</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== ABOUT ===================== -->
+<main class="page" id="about" data-page aria-label="About">
+  <section class="phero">
+    <div class="contour-overlay" aria-hidden="true">
+      <svg viewBox="0 0 1200 500" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.4">
+        <path d="M-50 400 C 300 320 500 440 750 360 S 1150 300 1260 380"/>
+        <path d="M-50 350 C 300 270 500 390 750 310 S 1150 250 1260 330"/>
+        <path d="M-50 300 C 300 220 500 340 750 260 S 1150 200 1260 280"/>
+        <path d="M-50 250 C 300 170 500 290 750 210 S 1150 150 1260 230"/>
+        <path d="M-50 200 C 300 120 500 240 750 160 S 1150 100 1260 180"/>
+      </g></svg>
+    </div>
+    <div class="wrap">
+      <span class="eyebrow">About us</span>
+      <h1>We grew up between the field and the system.</h1>
+      <p>Hetti's &amp; Sons is an agriculture and IT company based in Sri Lanka's central highlands, working with the people who grow the country's food and the companies that buy it.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split rev">
+      <div class="media reveal">
+        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1544015759-237f87d55ef3?auto=format&fit=crop&w=1100&q=80" alt="Aerial view of patterned green agricultural fields in the Sri Lankan countryside" />
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Our story</span>
+        <h2>From a family trade to a tech-enabled supply partner.</h2>
+        <p class="lead" style="margin-bottom:1rem">The Hetti family has bought and sold produce for two generations. We learned early that the farmer's trust is the whole business — pay fairly, show up when you say you will, and never gamble with someone's harvest.</p>
+        <p style="color:var(--muted)">As buyers started demanding traceability, consistent grades and faster reporting, we did what most suppliers couldn't: we built the technology ourselves. That's how the "&amp; IT" joined the name. Today we move agriculture products with the discipline of a software company and the relationships of a village trader.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--mist">
+    <div class="wrap">
+      <div class="grid grid-2">
+        <article class="bcard reveal" style="background:#fff">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <h3>Our mission</h3>
+          <p>To give Sri Lanka's farmers a buyer they can build a future on, and give companies a supply chain they can finally trust — connected by honest technology.</p>
+        </article>
+        <article class="bcard reveal" style="background:#fff">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></div>
+          <h3>What we value</h3>
+          <p>Fair dealing first. Quality that's measured, not promised. And the belief that good agriculture and good software solve the same problem — getting the right thing to the right place, on time.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow">What makes us different</span>
+        <h2>Most suppliers do one thing. We close the whole loop.</h2>
+      </div>
+      <div class="grid services-grid">
+        <article class="scard reveal"><span class="tag">Difference 01</span><h3>We own the relationship</h3><p>No anonymous middlemen. We know our farmers by name and our buyers by their standards.</p></article>
+        <article class="scard reveal"><span class="tag">Difference 02</span><h3>We own the tech</h3><p>Grading, tracking and reporting run on systems we built — so we fix and improve them fast.</p></article>
+        <article class="scard reveal"><span class="tag">Difference 03</span><h3>We own the outcome</h3><p>One partner accountable from harvest to handover. When something needs solving, it's us.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="wrap" style="text-align:center;display:grid;gap:1.4rem;justify-items:center">
+      <span class="eyebrow">Work with us</span>
+      <h2 style="font-size:clamp(1.9rem,4vw,2.9rem);max-width:20ch">Let's build a supply chain you don't have to worry about.</h2>
+      <a href="#contact" class="btn btn-gold" data-nav>Get in touch <span class="arr">→</span></a>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== SERVICES ===================== -->
+<main class="page" id="services" data-page aria-label="Services">
+  <section class="phero">
+    <div class="contour-overlay" aria-hidden="true">
+      <svg viewBox="0 0 1200 500" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.4">
+        <path d="M-50 400 C 300 320 500 440 750 360 S 1150 300 1260 380"/>
+        <path d="M-50 350 C 300 270 500 390 750 310 S 1150 250 1260 330"/>
+        <path d="M-50 300 C 300 220 500 340 750 260 S 1150 200 1260 280"/>
+        <path d="M-50 250 C 300 170 500 290 750 210 S 1150 150 1260 230"/>
+      </g></svg>
+    </div>
+    <div class="wrap">
+      <span class="eyebrow">Services</span>
+      <h1>Everything between the harvest and the handover.</h1>
+      <p>Six services that cover both halves of what we do — sourcing real agriculture products, and building the IT that keeps them traceable.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid services-grid">
+        <article class="scard reveal"><span class="tag">Supply</span><h3>Sourcing &amp; supply</h3><p>Bulk rice, tea, spices, fruit and fresh produce, sourced to your grade and volume from our farmer network and delivered on schedule.</p><a href="#service-sourcing" class="more" data-nav>Learn more <span class="arr">→</span></a></article>
+        <article class="scard reveal"><span class="tag">Farmers</span><h3>Farmer partnership</h3><p>Guaranteed offtake, fair pricing, inputs and agronomy guidance — a stable buyer that helps local farmers plan and grow.</p><a href="#service-farmers" class="more" data-nav>Learn more <span class="arr">→</span></a></article>
+        <article class="scard reveal"><span class="tag">Quality</span><h3>Grading &amp; quality control</h3><p>Standardised grading, moisture and quality checks at collection, with documented results for every lot you receive.</p><a href="#service-quality" class="more" data-nav>Learn more <span class="arr">→</span></a></article>
+        <article class="scard reveal"><span class="tag">Logistics</span><h3>Logistics &amp; delivery</h3><p>Collection, packing, cold-chain where needed, and delivery with the documentation buyers and exporters require.</p><a href="#service-logistics" class="more" data-nav>Learn more <span class="arr">→</span></a></article>
+        <article class="scard reveal"><span class="tag">Agri-Tech</span><h3>Agri-tech &amp; data</h3><p>Farm-management software, crop and weather dashboards, and seed-to-shelf traceability that turns field activity into clean data.</p><a href="#service-agritech" class="more" data-nav>Learn more <span class="arr">→</span></a></article>
+        <article class="scard reveal"><span class="tag">IT Projects</span><h3>Custom IT projects</h3><p>Websites, internal systems and integrations for agribusinesses — built by a team that understands the sector first-hand.</p><a href="#service-it" class="more" data-nav>Learn more <span class="arr">→</span></a></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section section--mist">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow">How it works</span>
+        <h2>Four steps from "we need this" to "it's delivered".</h2>
+        <p class="lead">A simple, repeatable process — whether you're a company sourcing or a farmer supplying.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><div class="num">STEP 01</div><h3>Tell us what you need</h3><p>Share the product, grade, volume and timeline. We confirm what's realistic and at what price.</p></div>
+        <div class="step reveal"><div class="num">STEP 02</div><h3>We source &amp; match</h3><p>We tap our farmer network to secure supply, coordinating planting and collection where needed.</p></div>
+        <div class="step reveal"><div class="num">STEP 03</div><h3>Grade, pack &amp; log</h3><p>Every lot is checked, graded and recorded in our system, with results attached to the batch.</p></div>
+        <div class="step reveal"><div class="num">STEP 04</div><h3>Deliver with proof</h3><p>We deliver on schedule with full traceability and the paperwork your buyers or auditors expect.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2>Questions, answered.</h2>
+      </div>
+      <div class="faq">
+        <details class="qa reveal"><summary>What products can you supply?<span class="pm">+</span></summary><div class="ans">Rice and grains, Ceylon tea, spices, fresh vegetables and fruit, and seasonal produce. If it grows in Sri Lanka's central regions, we can likely source it — tell us your spec and we'll confirm.</div></details>
+        <details class="qa reveal"><summary>Do you work with small farmers or only big suppliers?<span class="pm">+</span></summary><div class="ans">Both. Our model is built on a wide network of smallholder farmers who get guaranteed offtake, combined with the volume larger buyers require. Small farmers are the foundation of the business.</div></details>
+        <details class="qa reveal"><summary>What does the "IT" side actually include?<span class="pm">+</span></summary><div class="ans">Our own grading and traceability systems, farm-management and crop/weather dashboards, plus custom software, websites and integrations we build for other agribusinesses.</div></details>
+        <details class="qa reveal"><summary>Can you provide traceability and quality documentation?<span class="pm">+</span></summary><div class="ans">Yes. Every lot is logged with grade, origin and quality-check results. We can share batch history and proof of origin to support audits, exports and certifications.</div></details>
+        <details class="qa reveal"><summary>How do I get started?<span class="pm">+</span></summary><div class="ans">Book a call or send us your requirement through the contact form. We'll come back with availability, pricing and a timeline — usually within a couple of working days.</div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="wrap" style="text-align:center;display:grid;gap:1.4rem;justify-items:center">
+      <span class="eyebrow">Ready when you are</span>
+      <h2 style="font-size:clamp(1.9rem,4vw,2.9rem);max-width:20ch">Get a sourcing quote or scope an IT project today.</h2>
+      <a href="#contact" class="btn btn-gold" data-nav>Book a call <span class="arr">→</span></a>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== SERVICE: SOURCING ===================== -->
+<main class="page" id="service-sourcing" data-page aria-label="Service: Sourcing & supply">
+  <section class="phero">
+    <div class="contour-overlay" aria-hidden="true"><svg viewBox="0 0 1200 500" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.4"><path d="M-50 400 C 300 320 500 440 750 360 S 1150 300 1260 380"/><path d="M-50 350 C 300 270 500 390 750 310 S 1150 250 1260 330"/><path d="M-50 300 C 300 220 500 340 750 260 S 1150 200 1260 280"/><path d="M-50 250 C 300 170 500 290 750 210 S 1150 150 1260 230"/></g></svg></div>
+    <div class="wrap">
+      <a class="back-link" href="#services" data-nav>← All services</a>
+      <span class="eyebrow">Service</span>
+      <h1>Sourcing &amp; supply</h1>
+      <p>We source dependable agriculture products in the grades and volumes your business needs — from a farmer network we know by name.</p>
+      <a href="#contact" class="btn btn-gold" data-nav>Get a quote <span class="arr">→</span></a>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap split">
+      <div class="reveal">
+        <span class="eyebrow">Overview</span>
+        <h2>Bulk agriculture products, sourced to your spec.</h2>
+        <p class="lead" style="margin-bottom:1rem">From rice and tea to spices, fruit and fresh vegetables, we aggregate supply across Sri Lanka's central regions and deliver it on a timeline you can plan around.</p>
+        <ul class="ticks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Rice, tea, spices, fruit and fresh produce in wholesale volumes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Grades, prices and delivery windows agreed up front</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Supply pooled from 450+ farmers, so volume stays reliable</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Every lot graded and logged before it reaches you</li>
+        </ul>
+      </div>
+      <div class="media reveal"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1757627550652-30788bfce978?auto=format&fit=crop&w=1100&q=80" alt="Fresh vegetables in wooden market crates ready for wholesale supply" /></div>
+    </div>
+  </section>
+  <section class="section section--mist">
+    <div class="wrap">
+      <div class="head reveal"><span class="eyebrow">What's included</span><h2>How sourcing works with us.</h2></div>
+      <div class="grid services-grid">
+        <article class="scard reveal"><span class="tag">01 · Plan</span><h3>Demand planning</h3><p>We map your volume and timing needs to what our farmers can realistically grow and harvest.</p></article>
+        <article class="scard reveal"><span class="tag">02 · Pool</span><h3>Aggregation</h3><p>Supply is pooled across multiple farms so a single buyer's order is always fully covered.</p></article>
+        <article class="scard reveal"><span class="tag">03 · Check</span><h3>Consistent grades</h3><p>Products arrive at the grade you agreed, verified at the point of collection.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="head reveal"><span class="eyebrow">Keep exploring</span><h2>Other services</h2></div>
+      <div class="svc-explore reveal">
+        <a href="#service-farmers" data-nav>Farmer partnership</a>
+        <a href="#service-quality" data-nav>Grading &amp; quality</a>
+        <a href="#service-logistics" data-nav>Logistics &amp; delivery</a>
+        <a href="#service-agritech" data-nav>Agri-tech &amp; data</a>
+        <a href="#service-it" data-nav>Custom IT projects</a>
+      </div>
+    </div>
+  </section>
+  <section class="section section--dark">
+    <div class="wrap" style="text-align:center;display:grid;gap:1.4rem;justify-items:center">
+      <span class="eyebrow">Get started</span>
+      <h2 style="font-size:clamp(1.9rem,4vw,2.9rem);max-width:22ch">Tell us what you need to source.</h2>
+      <a href="#contact" class="btn btn-gold" data-nav>Book a call <span class="arr">→</span></a>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== SERVICE: FARMERS ===================== -->
+<main class="page" id="service-farmers" data-page aria-label="Service: Farmer partnership">
+  <section class="phero">
+    <div class="contour-overlay" aria-hidden="true"><svg viewBox="0 0 1200 500" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.4"><path d="M-50 400 C 300 320 500 440 750 360 S 1150 300 1260 380"/><path d="M-50 350 C 300 270 500 390 750 310 S 1150 250 1260 330"/><path d="M-50 300 C 300 220 500 340 750 260 S 1150 200 1260 280"/><path d="M-50 250 C 300 170 500 290 750 210 S 1150 150 1260 230"/></g></svg></div>
+    <div class="wrap">
+      <a class="back-link" href="#services" data-nav>← All services</a>
+      <span class="eyebrow">Service</span>
+      <h1>Farmer partnership</h1>
+      <p>A stable, fair buyer that local farmers can build a future on — with guaranteed offtake, fair pricing and hands-on support.</p>
+      <a href="#contact" class="btn btn-gold" data-nav>Partner with us <span class="arr">→</span></a>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap split">
+      <div class="reveal">
+        <span class="eyebrow">Overview</span>
+        <h2>We buy what you grow — at a price agreed before you plant.</h2>
+        <p class="lead" style="margin-bottom:1rem">For smallholders, uncertainty is the biggest risk. We remove it with committed offtake, transparent pricing and agronomy support that helps you grow more of what sells.</p>
+        <ul class="ticks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Guaranteed offtake, so you plant knowing it will be bought</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Fair, transparent pricing agreed in advance</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Access to inputs, seeds and agronomy guidance</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Faster, reliable payment after each collection</li>
+        </ul>
+      </div>
+      <div class="media reveal"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1499848144902-af767f6d0c7f?auto=format&fit=crop&w=1100&q=80" alt="A farmer hand-harvesting fresh green leaves in a Sri Lankan field" /></div>
+    </div>
+  </section>
+  <section class="section section--mist">
+    <div class="wrap">
+      <div class="head reveal"><span class="eyebrow">What's included</span><h2>What partnering with us means.</h2></div>
+      <div class="grid services-grid">
+        <article class="scard reveal"><span class="tag">Offtake</span><h3>Committed offtake</h3><p>We agree what we'll buy and when, so your harvest has a home before it's even grown.</p></article>
+        <article class="scard reveal"><span class="tag">Support</span><h3>Inputs &amp; agronomy</h3><p>Guidance on crops, timing and quality to help you raise both yield and grade.</p></article>
+        <article class="scard reveal"><span class="tag">Payment</span><h3>Fair payment</h3><p>Transparent pricing and dependable payment after each collection — no waiting games.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="head reveal"><span class="eyebrow">Keep exploring</span><h2>Other services</h2></div>
+      <div class="svc-explore reveal">
+        <a href="#service-sourcing" data-nav>Sourcing &amp; supply</a>
+        <a href="#service-quality" data-nav>Grading &amp; quality</a>
+        <a href="#service-logistics" data-nav>Logistics &amp; delivery</a>
+        <a href="#service-agritech" data-nav>Agri-tech &amp; data</a>
+        <a href="#service-it" data-nav>Custom IT projects</a>
+      </div>
+    </div>
+  </section>
+  <section class="section section--dark">
+    <div class="wrap" style="text-align:center;display:grid;gap:1.4rem;justify-items:center">
+      <span class="eyebrow">Get started</span>
+      <h2 style="font-size:clamp(1.9rem,4vw,2.9rem);max-width:22ch">Grow with a buyer you can count on.</h2>
+      <a href="#contact" class="btn btn-gold" data-nav>Talk to us <span class="arr">→</span></a>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== SERVICE: QUALITY ===================== -->
+<main class="page" id="service-quality" data-page aria-label="Service: Grading & quality control">
+  <section class="phero">
+    <div class="contour-overlay" aria-hidden="true"><svg viewBox="0 0 1200 500" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.4"><path d="M-50 400 C 300 320 500 440 750 360 S 1150 300 1260 380"/><path d="M-50 350 C 300 270 500 390 750 310 S 1150 250 1260 330"/><path d="M-50 300 C 300 220 500 340 750 260 S 1150 200 1260 280"/><path d="M-50 250 C 300 170 500 290 750 210 S 1150 150 1260 230"/></g></svg></div>
+    <div class="wrap">
+      <a class="back-link" href="#services" data-nav>← All services</a>
+      <span class="eyebrow">Service</span>
+      <h1>Grading &amp; quality control</h1>
+      <p>Standardised grading and quality checks on every lot — with documented results buyers and auditors can trust.</p>
+      <a href="#contact" class="btn btn-gold" data-nav>Request details <span class="arr">→</span></a>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap split">
+      <div class="reveal">
+        <span class="eyebrow">Overview</span>
+        <h2>Quality you can measure, not just promise.</h2>
+        <p class="lead" style="margin-bottom:1rem">We check, grade and record every batch at collection, so what's on the report matches what's in the crate. That's how buyers stop guessing and start trusting.</p>
+        <ul class="ticks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Moisture, size and quality checks at the point of collection</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Standardised grading against agreed criteria</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Documented results attached to every batch</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Sub-standard lots flagged before they enter your supply</li>
+        </ul>
+      </div>
+      <div class="media reveal"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1544451822-38e32b887c08?auto=format&fit=crop&w=1100&q=80" alt="Close inspection of fresh green tea leaves for quality grading" /></div>
+    </div>
+  </section>
+  <section class="section section--mist">
+    <div class="wrap">
+      <div class="head reveal"><span class="eyebrow">What's included</span><h2>How we keep quality honest.</h2></div>
+      <div class="grid services-grid">
+        <article class="scard reveal"><span class="tag">Inspect</span><h3>Inspection</h3><p>Trained collectors assess each lot against clear, consistent standards in the field.</p></article>
+        <article class="scard reveal"><span class="tag">Grade</span><h3>Grading</h3><p>Products are sorted into agreed grades so pricing and quality always line up.</p></article>
+        <article class="scard reveal"><span class="tag">Record</span><h3>Records</h3><p>Results are logged per batch and available whenever you need proof of quality.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="head reveal"><span class="eyebrow">Keep exploring</span><h2>Other services</h2></div>
+      <div class="svc-explore reveal">
+        <a href="#service-sourcing" data-nav>Sourcing &amp; supply</a>
+        <a href="#service-farmers" data-nav>Farmer partnership</a>
+        <a href="#service-logistics" data-nav>Logistics &amp; delivery</a>
+        <a href="#service-agritech" data-nav>Agri-tech &amp; data</a>
+        <a href="#service-it" data-nav>Custom IT projects</a>
+      </div>
+    </div>
+  </section>
+  <section class="section section--dark">
+    <div class="wrap" style="text-align:center;display:grid;gap:1.4rem;justify-items:center">
+      <span class="eyebrow">Get started</span>
+      <h2 style="font-size:clamp(1.9rem,4vw,2.9rem);max-width:22ch">Get supply you don't have to second-guess.</h2>
+      <a href="#contact" class="btn btn-gold" data-nav>Book a call <span class="arr">→</span></a>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== SERVICE: LOGISTICS ===================== -->
+<main class="page" id="service-logistics" data-page aria-label="Service: Logistics & delivery">
+  <section class="phero">
+    <div class="contour-overlay" aria-hidden="true"><svg viewBox="0 0 1200 500" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.4"><path d="M-50 400 C 300 320 500 440 750 360 S 1150 300 1260 380"/><path d="M-50 350 C 300 270 500 390 750 310 S 1150 250 1260 330"/><path d="M-50 300 C 300 220 500 340 750 260 S 1150 200 1260 280"/><path d="M-50 250 C 300 170 500 290 750 210 S 1150 150 1260 230"/></g></svg></div>
+    <div class="wrap">
+      <a class="back-link" href="#services" data-nav>← All services</a>
+      <span class="eyebrow">Service</span>
+      <h1>Logistics &amp; delivery</h1>
+      <p>Collection from the farm, packing, cold-chain where needed, and delivery to your dock or port — with the paperwork done right.</p>
+      <a href="#contact" class="btn btn-gold" data-nav>Arrange delivery <span class="arr">→</span></a>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap split">
+      <div class="reveal">
+        <span class="eyebrow">Overview</span>
+        <h2>From the farm gate to your gate, on schedule.</h2>
+        <p class="lead" style="margin-bottom:1rem">Good produce is only as good as how it arrives. We handle collection, packing and delivery — including cold-chain for perishables — with documentation exporters and processors expect.</p>
+        <ul class="ticks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Scheduled collection from farms across our network</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Packing and cold-chain handling for perishable goods</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Delivery to buyers, processors and ports</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Export and compliance documentation prepared</li>
+        </ul>
+      </div>
+      <div class="media reveal"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1535379453347-1ffd615e2e08?auto=format&fit=crop&w=1100&q=80" alt="Transport trucks beside a green crop field for collection and delivery" /></div>
+    </div>
+  </section>
+  <section class="section section--mist">
+    <div class="wrap">
+      <div class="head reveal"><span class="eyebrow">What's included</span><h2>Moving produce, the right way.</h2></div>
+      <div class="grid services-grid">
+        <article class="scard reveal"><span class="tag">Collect</span><h3>Collection</h3><p>Routed pickups keep produce moving from harvest to handling without delay.</p></article>
+        <article class="scard reveal"><span class="tag">Protect</span><h3>Cold-chain</h3><p>Temperature-controlled handling protects quality on perishable lots in transit.</p></article>
+        <article class="scard reveal"><span class="tag">Deliver</span><h3>Delivery &amp; docs</h3><p>On-time delivery with the documentation your buyers and ports require.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="head reveal"><span class="eyebrow">Keep exploring</span><h2>Other services</h2></div>
+      <div class="svc-explore reveal">
+        <a href="#service-sourcing" data-nav>Sourcing &amp; supply</a>
+        <a href="#service-farmers" data-nav>Farmer partnership</a>
+        <a href="#service-quality" data-nav>Grading &amp; quality</a>
+        <a href="#service-agritech" data-nav>Agri-tech &amp; data</a>
+        <a href="#service-it" data-nav>Custom IT projects</a>
+      </div>
+    </div>
+  </section>
+  <section class="section section--dark">
+    <div class="wrap" style="text-align:center;display:grid;gap:1.4rem;justify-items:center">
+      <span class="eyebrow">Get started</span>
+      <h2 style="font-size:clamp(1.9rem,4vw,2.9rem);max-width:22ch">Let's move your supply, reliably.</h2>
+      <a href="#contact" class="btn btn-gold" data-nav>Book a call <span class="arr">→</span></a>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== SERVICE: AGRI-TECH ===================== -->
+<main class="page" id="service-agritech" data-page aria-label="Service: Agri-tech & data">
+  <section class="phero">
+    <div class="contour-overlay" aria-hidden="true"><svg viewBox="0 0 1200 500" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.4"><path d="M-50 400 C 300 320 500 440 750 360 S 1150 300 1260 380"/><path d="M-50 350 C 300 270 500 390 750 310 S 1150 250 1260 330"/><path d="M-50 300 C 300 220 500 340 750 260 S 1150 200 1260 280"/><path d="M-50 250 C 300 170 500 290 750 210 S 1150 150 1260 230"/></g></svg></div>
+    <div class="wrap">
+      <a class="back-link" href="#services" data-nav>← All services</a>
+      <span class="eyebrow">Service</span>
+      <h1>Agri-tech &amp; data</h1>
+      <p>Farm-management tools, crop and weather dashboards, and seed-to-shelf traceability that turn field activity into clean, usable data.</p>
+      <a href="#contact" class="btn btn-gold" data-nav>See a demo <span class="arr">→</span></a>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap split">
+      <div class="reveal">
+        <span class="eyebrow">Overview</span>
+        <h2>The field, turned into data you can act on.</h2>
+        <p class="lead" style="margin-bottom:1rem">We built our own technology to run the business — and we put the same tools to work for cooperatives, processors and buyers who want visibility from soil to shelf.</p>
+        <ul class="ticks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Farm-management and crop-planning dashboards</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Crop and weather data to time planting and harvest</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Seed-to-shelf traceability and full batch history</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Reporting that supports audits and certifications</li>
+        </ul>
+      </div>
+      <div class="media reveal"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=1100&q=80" alt="Orderly rows of crops at sunset representing data-driven farming" /></div>
+    </div>
+  </section>
+  <section class="section section--mist">
+    <div class="wrap">
+      <div class="head reveal"><span class="eyebrow">What's included</span><h2>Tools that earn their keep.</h2></div>
+      <div class="grid services-grid">
+        <article class="scard reveal"><span class="tag">Plan</span><h3>Dashboards</h3><p>Plan crops, track inputs and watch conditions in one clear, shared view.</p></article>
+        <article class="scard reveal"><span class="tag">Trace</span><h3>Traceability</h3><p>Follow any batch from origin to delivery with complete history on demand.</p></article>
+        <article class="scard reveal"><span class="tag">Report</span><h3>Reporting</h3><p>Export the records you need for audits, buyers and certification bodies.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="head reveal"><span class="eyebrow">Keep exploring</span><h2>Other services</h2></div>
+      <div class="svc-explore reveal">
+        <a href="#service-sourcing" data-nav>Sourcing &amp; supply</a>
+        <a href="#service-farmers" data-nav>Farmer partnership</a>
+        <a href="#service-quality" data-nav>Grading &amp; quality</a>
+        <a href="#service-logistics" data-nav>Logistics &amp; delivery</a>
+        <a href="#service-it" data-nav>Custom IT projects</a>
+      </div>
+    </div>
+  </section>
+  <section class="section section--dark">
+    <div class="wrap" style="text-align:center;display:grid;gap:1.4rem;justify-items:center">
+      <span class="eyebrow">Get started</span>
+      <h2 style="font-size:clamp(1.9rem,4vw,2.9rem);max-width:22ch">See your supply chain clearly.</h2>
+      <a href="#contact" class="btn btn-gold" data-nav>Book a call <span class="arr">→</span></a>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== SERVICE: IT PROJECTS ===================== -->
+<main class="page" id="service-it" data-page aria-label="Service: Custom IT projects">
+  <section class="phero">
+    <div class="contour-overlay" aria-hidden="true"><svg viewBox="0 0 1200 500" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.4"><path d="M-50 400 C 300 320 500 440 750 360 S 1150 300 1260 380"/><path d="M-50 350 C 300 270 500 390 750 310 S 1150 250 1260 330"/><path d="M-50 300 C 300 220 500 340 750 260 S 1150 200 1260 280"/><path d="M-50 250 C 300 170 500 290 750 210 S 1150 150 1260 230"/></g></svg></div>
+    <div class="wrap">
+      <a class="back-link" href="#services" data-nav>← All services</a>
+      <span class="eyebrow">Service</span>
+      <h1>Custom IT projects</h1>
+      <p>Websites, internal systems and integrations for agribusinesses — built by a team that understands the sector first-hand.</p>
+      <a href="#contact" class="btn btn-gold" data-nav>Scope a project <span class="arr">→</span></a>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap split">
+      <div class="reveal">
+        <span class="eyebrow">Overview</span>
+        <h2>Software built by people who know agriculture.</h2>
+        <p class="lead" style="margin-bottom:1rem">Most developers don't know a harvest window from a holiday. We do. We build practical systems for agribusinesses — and connect them to the supply data we already manage.</p>
+        <ul class="ticks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Websites and product catalogues for agribusinesses</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Internal tools for orders, inventory and collections</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Integrations with traceability and supply systems</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Built, supported and improved by an in-house team</li>
+        </ul>
+      </div>
+      <div class="media reveal"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1544015759-237f87d55ef3?auto=format&fit=crop&w=1100&q=80" alt="Aerial view of patterned green fields representing structured systems" /></div>
+    </div>
+  </section>
+  <section class="section section--mist">
+    <div class="wrap">
+      <div class="head reveal"><span class="eyebrow">What's included</span><h2>How we run a project.</h2></div>
+      <div class="grid services-grid">
+        <article class="scard reveal"><span class="tag">01 · Discover</span><h3>Discovery</h3><p>We learn how your operation actually works before writing a single line of code.</p></article>
+        <article class="scard reveal"><span class="tag">02 · Build</span><h3>Build</h3><p>Clean, practical software shaped around your real workflow — not a generic template.</p></article>
+        <article class="scard reveal"><span class="tag">03 · Support</span><h3>Support</h3><p>We maintain and improve what we build. No hand-off and gone.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="head reveal"><span class="eyebrow">Keep exploring</span><h2>Other services</h2></div>
+      <div class="svc-explore reveal">
+        <a href="#service-sourcing" data-nav>Sourcing &amp; supply</a>
+        <a href="#service-farmers" data-nav>Farmer partnership</a>
+        <a href="#service-quality" data-nav>Grading &amp; quality</a>
+        <a href="#service-logistics" data-nav>Logistics &amp; delivery</a>
+        <a href="#service-agritech" data-nav>Agri-tech &amp; data</a>
+      </div>
+    </div>
+  </section>
+  <section class="section section--dark">
+    <div class="wrap" style="text-align:center;display:grid;gap:1.4rem;justify-items:center">
+      <span class="eyebrow">Get started</span>
+      <h2 style="font-size:clamp(1.9rem,4vw,2.9rem);max-width:22ch">Have a project in mind? Let's scope it.</h2>
+      <a href="#contact" class="btn btn-gold" data-nav>Book a call <span class="arr">→</span></a>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== LISTINGS ===================== -->
+<main class="page" id="listings" data-page aria-label="Listings">
+  <section class="phero">
+    <div class="contour-overlay" aria-hidden="true">
+      <svg viewBox="0 0 1200 500" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.4">
+        <path d="M-50 400 C 300 320 500 440 750 360 S 1150 300 1260 380"/>
+        <path d="M-50 350 C 300 270 500 390 750 310 S 1150 250 1260 330"/>
+        <path d="M-50 300 C 300 220 500 340 750 260 S 1150 200 1260 280"/>
+        <path d="M-50 250 C 300 170 500 290 750 210 S 1150 150 1260 230"/>
+      </g></svg>
+    </div>
+    <div class="wrap">
+      <span class="eyebrow">Products &amp; projects</span>
+      <h1>What we supply and what we've built.</h1>
+      <p>A snapshot of the agriculture products we source and the agri-tech projects we deliver. Filter to find what's relevant to you.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="filterbar reveal" id="filterBar" role="group" aria-label="Filter listings">
+        <button class="chip active" data-filter="all">All</button>
+        <button class="chip" data-filter="produce">Fresh produce</button>
+        <button class="chip" data-filter="tea-spices">Tea &amp; spices</button>
+        <button class="chip" data-filter="grains">Grains</button>
+        <button class="chip" data-filter="agri-tech">Agri-tech</button>
+        <button class="chip" data-filter="logistics">Logistics</button>
+      </div>
+
+      <div class="grid listings" id="listingGrid">
+        <article class="lcard reveal" data-category="tea-spices">
+          <div class="ph"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1544451822-38e32b887c08?auto=format&fit=crop&w=900&q=80" alt="Close-up of fresh green tea leaves on a plantation bush"><span class="cat">Tea &amp; spices</span></div>
+          <div class="body"><h3>Ceylon tea leaf</h3><p>Hand-picked, graded tea sourced from highland estates and smallholders, supplied loose or to processor spec.</p><div class="foot"><span class="meta">PRODUCT</span><a href="#contact" class="go" data-nav>Enquire →</a></div></div>
+        </article>
+
+        <article class="lcard reveal" data-category="produce">
+          <div class="ph"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1757627550652-30788bfce978?auto=format&fit=crop&w=900&q=80" alt="Fresh vegetables and tomatoes displayed in wooden market crates"><span class="cat">Fresh produce</span></div>
+          <div class="body"><h3>Seasonal vegetables</h3><p>Tomatoes, leeks, beans, carrots and more — collected, graded and packed for wholesale and retail buyers.</p><div class="foot"><span class="meta">PRODUCT</span><a href="#contact" class="go" data-nav>Enquire →</a></div></div>
+        </article>
+
+        <article class="lcard reveal" data-category="grains">
+          <div class="ph"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=900&q=80" alt="Rows of green crops growing in a cultivated field at sunset"><span class="cat">Grains</span></div>
+          <div class="body"><h3>Paddy &amp; rice</h3><p>Locally grown paddy and milled rice supplied in bulk, with moisture and grade checks on every lot.</p><div class="foot"><span class="meta">PRODUCT</span><a href="#contact" class="go" data-nav>Enquire →</a></div></div>
+        </article>
+
+        <article class="lcard reveal" data-category="agri-tech">
+          <div class="ph"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1515150144380-bca9f1650ed9?auto=format&fit=crop&w=900&q=80" alt="A person tending and watering young green plants by hand"><span class="cat">Agri-tech</span></div>
+          <div class="body"><h3>Traceability dashboard</h3><p>A seed-to-shelf tracking system built for a food processor — batch history, origin and quality data in one view.</p><div class="foot"><span class="meta">PROJECT</span><a href="#contact" class="go" data-nav>View brief →</a></div></div>
+        </article>
+
+        <article class="lcard reveal" data-category="agri-tech">
+          <div class="ph"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1594771804886-a933bb2d609b?auto=format&fit=crop&w=900&q=80" alt="A green tractor working in an open field under a blue sky"><span class="cat">Agri-tech</span></div>
+          <div class="body"><h3>Farm-management tool</h3><p>Crop planning, input tracking and weather dashboards that help cooperatives plan harvests with confidence.</p><div class="foot"><span class="meta">PROJECT</span><a href="#contact" class="go" data-nav>View brief →</a></div></div>
+        </article>
+
+        <article class="lcard reveal" data-category="logistics">
+          <div class="ph"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1535379453347-1ffd615e2e08?auto=format&fit=crop&w=900&q=80" alt="Two transport trucks parked beside a green crop field"><span class="cat">Logistics</span></div>
+          <div class="body"><h3>Collection &amp; delivery</h3><p>Scheduled collection from farms and delivery to buyers and ports, with cold-chain handling where required.</p><div class="foot"><span class="meta">SERVICE</span><a href="#contact" class="go" data-nav>Enquire →</a></div></div>
+        </article>
+
+        <article class="lcard reveal" data-category="tea-spices">
+          <div class="ph"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1668587877964-16488273b0ab?auto=format&fit=crop&w=900&q=80" alt="Cups of freshly brewed Ceylon tea on a tray"><span class="cat">Tea &amp; spices</span></div>
+          <div class="body"><h3>Spice consignments</h3><p>Cinnamon, pepper and cloves sourced from highland growers and graded for export-ready consignments.</p><div class="foot"><span class="meta">PRODUCT</span><a href="#contact" class="go" data-nav>Enquire →</a></div></div>
+        </article>
+
+        <article class="lcard reveal" data-category="produce">
+          <div class="ph"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1593490755898-b6f1d8e637cb?auto=format&fit=crop&w=900&q=80" alt="A farm worker in a hat tending a flowering field"><span class="cat">Fresh produce</span></div>
+          <div class="body"><h3>Contract growing</h3><p>Pre-agreed contract farming for buyers who need a specific crop, volume and harvest window locked in early.</p><div class="foot"><span class="meta">PROGRAM</span><a href="#contact" class="go" data-nav>Enquire →</a></div></div>
+        </article>
+
+        <article class="lcard reveal" data-category="grains">
+          <div class="ph"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1491497895121-1334fc14d8c9?auto=format&fit=crop&w=900&q=80" alt="Wide open green agricultural fields stretching to the horizon"><span class="cat">Grains</span></div>
+          <div class="body"><h3>Maize &amp; pulses</h3><p>Maize, green gram and other pulses aggregated from smallholders for animal feed and food processors.</p><div class="foot"><span class="meta">PRODUCT</span><a href="#contact" class="go" data-nav>Enquire →</a></div></div>
+        </article>
+
+        <div class="empty" id="emptyState">No listings in this category yet — <a href="#contact" class="go" data-nav style="display:inline">ask us what's available →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <div class="contour-overlay" aria-hidden="true">
+          <svg viewBox="0 0 1200 400" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M-50 320 C 250 240 450 360 700 290 S 1100 230 1260 300"/>
+            <path d="M-50 280 C 250 200 450 320 700 250 S 1100 190 1260 260"/>
+            <path d="M-50 240 C 250 160 450 280 700 210 S 1100 150 1260 220"/>
+            <path d="M-50 200 C 250 120 450 240 700 170 S 1100 110 1260 180"/>
+          </g></svg>
+        </div>
+        <div class="cta-inner">
+          <div>
+            <span class="eyebrow">Don't see it?</span>
+            <h2>If we don't list it, we can probably still source it.</h2>
+            <p>Tell us the product, grade and volume — we'll check the network and come back with options.</p>
+          </div>
+          <a href="#contact" class="btn btn-gold" data-nav>Send an enquiry <span class="arr">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== CONTACT ===================== -->
+<main class="page" id="contact" data-page aria-label="Contact">
+  <section class="phero">
+    <div class="contour-overlay" aria-hidden="true">
+      <svg viewBox="0 0 1200 500" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.4">
+        <path d="M-50 400 C 300 320 500 440 750 360 S 1150 300 1260 380"/>
+        <path d="M-50 350 C 300 270 500 390 750 310 S 1150 250 1260 330"/>
+        <path d="M-50 300 C 300 220 500 340 750 260 S 1150 200 1260 280"/>
+        <path d="M-50 250 C 300 170 500 290 750 210 S 1150 150 1260 230"/>
+      </g></svg>
+    </div>
+    <div class="wrap">
+      <span class="eyebrow">Contact</span>
+      <h1>Let's get your supply sorted.</h1>
+      <p>Send a few details about what you need to buy or sell. We'll reply with availability, pricing and next steps — usually within two working days.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap contact-grid">
+      <div class="reveal">
+        <form class="lead-form" id="leadForm" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" autocomplete="name" required />
+            <div class="err">Please enter your name.</div>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" required />
+            <div class="err">Please enter a valid email address.</div>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="+94 7X XXX XXXX" autocomplete="tel" required />
+            <div class="err">Please enter a phone number.</div>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us the product, grade and volume — or the project you have in mind." required></textarea>
+            <div class="err">Please add a short message.</div>
+          </div>
+          <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center">Send enquiry <span class="arr">→</span></button>
+          <p class="form-note">By sending, you agree to be contacted about your enquiry. We never share your details.</p>
+        </form>
+        <div class="form-success" id="formSuccess" role="status">
+          <strong>Thank you — your enquiry is on its way.</strong>
+          <p style="margin:.4rem 0 0">We've received your message and will get back to you within two working days. For anything urgent, call us directly on the number opposite.</p>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <ul class="info-list">
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.6 2.6.7a2 2 0 0 1 1.7 2Z"/></svg></span><div><div class="k">Phone</div><a class="v" href="tel:+94770000000">+94 77 000 0000</a></div></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><div class="k">Email</div><a class="v" href="mailto:hello@hettiandsons.lk">hello@hettiandsons.lk</a></div></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><div class="k">Location</div><div class="v">Kandy, Central Province, Sri Lanka</div></div></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><div class="k">Hours</div><div class="v">Mon–Sat · 8:30am–5:30pm</div></div></li>
+        </ul>
+
+        <div class="map">
+          <iframe title="Map showing Kandy, Sri Lanka" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Kandy,Sri+Lanka&output=embed"></iframe>
+        </div>
+
+        <div class="socials" aria-label="Social links">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H8v3h3v7h3v-7h2.5l.5-3H14V9.5c0-.3.2-.5.5-.5Z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17" cy="7" r="1.1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8.5v9h-3v-9h3Zm-1.5-4a1.7 1.7 0 1 1 0 3.4 1.7 1.7 0 0 1 0-3.4ZM20.5 17.5h-3v-4.7c0-1.2-.4-2-1.5-2-.8 0-1.3.6-1.5 1.1-.1.2-.1.5-.1.8v4.8h-3v-9h3v1.3c.4-.6 1.1-1.5 2.8-1.5 2 0 3.3 1.3 3.3 4.1v5.3Z"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3Zm5 12.4c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1-1.4-1-2.6s.6-1.8.9-2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2 1.3 2.3 1.5.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.3.1.6-.1 1.1Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site">
+  <div class="contour-overlay" aria-hidden="true">
+    <svg viewBox="0 0 1200 400" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.4">
+      <path d="M-50 320 C 250 240 450 360 700 290 S 1100 230 1260 300"/>
+      <path d="M-50 280 C 250 200 450 320 700 250 S 1100 190 1260 260"/>
+      <path d="M-50 240 C 250 160 450 280 700 210 S 1100 150 1260 220"/>
+      <path d="M-50 200 C 250 120 450 240 700 170 S 1100 110 1260 180"/>
+    </g></svg>
+  </div>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="brand" href="#home" data-nav>
+          <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <rect width="48" height="48" rx="12" fill="#2D6A4F"/>
+            <path d="M8 34c4-6 9-9 16-9s12 3 16 9" stroke="#A9D3BC" stroke-width="2" stroke-linecap="round"/>
+            <path d="M11 29c3.4-4.6 7.4-7 13-7s9.6 2.4 13 7" stroke="#CDE8D8" stroke-width="2" stroke-linecap="round"/>
+            <path d="M24 20c0-4 .4-7 3.6-9.4-.6 3.2.4 5 2.2 6.6" stroke="#E0A33A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="24" cy="20" r="1.7" fill="#E0A33A"/>
+          </svg>
+          <span>Hetti's &amp; Sons<small>Agriculture × IT</small></span>
+        </a>
+        <p class="fabout">Connecting Sri Lanka's farmers with the companies that buy from them — sourcing, logistics, quality and agri-tech, from one trusted partner.</p>
+      </div>
+      <div class="fcol">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#home" data-nav>Home</a></li>
+          <li><a href="#about" data-nav>About</a></li>
+          <li><a href="#services" data-nav>Services</a></li>
+          <li><a href="#listings" data-nav>Listings</a></li>
+          <li><a href="#contact" data-nav>Contact</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#service-sourcing" data-nav>Sourcing &amp; supply</a></li>
+          <li><a href="#service-farmers" data-nav>Farmer partnership</a></li>
+          <li><a href="#service-quality" data-nav>Grading &amp; quality</a></li>
+          <li><a href="#service-logistics" data-nav>Logistics &amp; delivery</a></li>
+          <li><a href="#service-agritech" data-nav>Agri-tech &amp; data</a></li>
+          <li><a href="#service-it" data-nav>Custom IT projects</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="tel:+94770000000">+94 77 000 0000</a></li>
+          <li><a href="mailto:hello@hettiandsons.lk">hello@hettiandsons.lk</a></li>
+          <li>Kandy, Central Province</li>
+          <li>Mon–Sat · 8:30am–5:30pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>© <span id="year"></span> Hetti's &amp; Sons. All rights reserved.</span>
+      <span>Agriculture &amp; IT · Sri Lanka · <a href="#contact" data-nav>Book a call</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Page routing ---------- */
+  var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+  var navAnchors = Array.prototype.slice.call(document.querySelectorAll('[data-nav]'));
+  var navLinkEls = Array.prototype.slice.call(document.querySelectorAll('#navMenu a'));
+  var primaryNav = document.getElementById('primaryNav');
+  var navMenu = document.getElementById('navMenu');
+  var menuBtn = document.getElementById('menuBtn');
+  var menuClose = document.getElementById('menuClose');
+  var servicesToggle = document.getElementById('servicesToggle');
+  var servicesSub = document.getElementById('servicesSub');
+  var lastFocus = null;
+
+  var META = {
+    home:    {t:"Hetti's & Sons — Agriculture & IT in Sri Lanka", d:"Connecting Sri Lanka's farmers with agriculture product purchasing companies. Sourcing, logistics, quality and agri-tech from one partner."},
+    about:   {t:"About — Hetti's & Sons | Agriculture & IT", d:"An agriculture and IT company built on long-term farmer relationships and technology we build ourselves."},
+    services:{t:"Services — Sourcing, Logistics & Agri-Tech | Hetti's & Sons", d:"Sourcing, farmer partnership, grading, logistics, agri-tech and custom IT projects for agribusinesses in Sri Lanka."},
+    'service-sourcing':{t:"Sourcing & Supply — Hetti's & Sons", d:"Bulk rice, tea, spices, fruit and fresh produce sourced to your grade and volume from our Sri Lankan farmer network."},
+    'service-farmers':{t:"Farmer Partnership — Hetti's & Sons", d:"Guaranteed offtake, fair pricing and agronomy support for local Sri Lankan farmers."},
+    'service-quality':{t:"Grading & Quality Control — Hetti's & Sons", d:"Standardised grading and documented quality checks on every agriculture lot we supply."},
+    'service-logistics':{t:"Logistics & Delivery — Hetti's & Sons", d:"Collection, cold-chain handling and delivery with export documentation for agriculture products."},
+    'service-agritech':{t:"Agri-Tech & Data — Hetti's & Sons", d:"Farm-management dashboards, crop and weather data, and seed-to-shelf traceability."},
+    'service-it':{t:"Custom IT Projects — Hetti's & Sons", d:"Websites, internal systems and integrations built for agribusinesses by an in-house team."},
+    listings:{t:"Products & Projects — Hetti's & Sons", d:"Browse the agriculture products we source and the agri-tech projects we deliver."},
+    contact: {t:"Contact — Book a Call | Hetti's & Sons", d:"Get a sourcing quote or scope an IT project. Based in Kandy, serving farmers and buyers across Sri Lanka."}
+  };
+
+  function reveal(scope){
+    var els = (scope || document).querySelectorAll('.reveal');
+    Array.prototype.forEach.call(els, function(el, i){
+      setTimeout(function(){ el.classList.add('in'); }, Math.min(i,8) * 70);
+    });
+  }
+
+  function resetListingsFilter(){
+    var bar = document.getElementById('filterBar');
+    if(!bar) return;
+    Array.prototype.forEach.call(bar.querySelectorAll('.chip'), function(c){
+      c.classList.toggle('active', c.getAttribute('data-filter') === 'all');
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('#listingGrid .lcard'), function(c){
+      c.style.display = '';
+    });
+    var es = document.getElementById('emptyState');
+    if(es) es.style.display = 'none';
+  }
+
+  function showPage(id, push){
+    if(!document.getElementById(id) || !document.getElementById(id).classList.contains('page')){ id = 'home'; }
+    pages.forEach(function(p){
+      var active = p.id === id;
+      p.classList.toggle('active', active);
+      if(active){
+        Array.prototype.forEach.call(p.querySelectorAll('.reveal'), function(el){ el.classList.remove('in'); });
+        reveal(p);
+        if(id === 'listings'){ resetListingsFilter(); }
+      }
+    });
+    var isService = (id === 'services') || id.indexOf('service-') === 0;
+    navLinkEls.forEach(function(a){
+      var href = a.getAttribute('href');
+      if(href === '#'+id){ a.setAttribute('aria-current','page'); } else { a.removeAttribute('aria-current'); }
+    });
+    if(servicesToggle){
+      if(isService){ servicesToggle.setAttribute('aria-current','true'); }
+      else { servicesToggle.removeAttribute('aria-current'); }
+    }
+    var m = META[id] || META.home;
+    document.title = m.t;
+    var md = document.querySelector('meta[name="description"]');
+    if(md){ md.setAttribute('content', m.d); }
+    window.scrollTo(0, 0);
+    if(push && location.hash !== '#'+id){ history.pushState(null,'','#'+id); }
+    if(typeof closeMenu === 'function'){ closeMenu(); }
+  }
+
+  navAnchors.forEach(function(a){
+    a.addEventListener('click', function(e){
+      var href = a.getAttribute('href') || '';
+      if(href.charAt(0) === '#'){
+        e.preventDefault();
+        showPage(href.slice(1), true);
+      }
+    });
+  });
+
+  window.addEventListener('popstate', function(){
+    showPage((location.hash || '#home').slice(1), false);
+  });
+
+  /* ---------- Mobile overlay menu (accessible) ---------- */
+  function isMobileMenu(){ return window.matchMedia('(max-width:920px)').matches; }
+
+  function collapseServices(){ if(servicesToggle){ servicesToggle.setAttribute('aria-expanded','false'); } }
+
+  function getFocusable(){
+    return Array.prototype.slice.call(primaryNav.querySelectorAll('a[href], button:not([disabled])'))
+      .filter(function(el){
+        var sub = el.closest('.sub');
+        if(sub){
+          var tog = sub.parentNode.querySelector('.sub-toggle');
+          if(tog && tog.getAttribute('aria-expanded') !== 'true'){ return false; }
+        }
+        return (el.offsetWidth > 0 || el.offsetHeight > 0 || el === document.activeElement);
+      });
+  }
+
+  function onMenuKeydown(e){
+    if(e.key === 'Escape'){ e.preventDefault(); closeMenu(); return; }
+    if(e.key === 'Tab'){
+      var f = getFocusable();
+      if(!f.length){ return; }
+      var first = f[0], last = f[f.length-1];
+      if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    }
+  }
+
+  function openMenu(){
+    lastFocus = document.activeElement;
+    primaryNav.classList.add('open');
+    document.body.classList.add('menu-open');
+    menuBtn.setAttribute('aria-expanded','true');
+    document.addEventListener('keydown', onMenuKeydown);
+    setTimeout(function(){ if(menuClose){ menuClose.focus(); } }, 80);
+  }
+
+  function closeMenu(){
+    var wasOpen = primaryNav.classList.contains('open');
+    primaryNav.classList.remove('open');
+    document.body.classList.remove('menu-open');
+    menuBtn.setAttribute('aria-expanded','false');
+    collapseServices();
+    document.removeEventListener('keydown', onMenuKeydown);
+    if(wasOpen && lastFocus && typeof lastFocus.focus === 'function'){ lastFocus.focus(); }
+  }
+
+  menuBtn.addEventListener('click', function(){
+    if(primaryNav.classList.contains('open')){ closeMenu(); } else { openMenu(); }
+  });
+  if(menuClose){ menuClose.addEventListener('click', closeMenu); }
+
+  /* Services dropdown / accordion toggle (works on both desktop popup and mobile accordion) */
+  if(servicesToggle){
+    servicesToggle.addEventListener('click', function(e){
+      e.preventDefault();
+      var open = servicesToggle.getAttribute('aria-expanded') === 'true';
+      servicesToggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+    });
+  }
+
+  /* Desktop: close dropdown on outside click or Escape */
+  document.addEventListener('click', function(e){
+    if(!isMobileMenu() && servicesToggle && servicesToggle.getAttribute('aria-expanded') === 'true'){
+      if(!servicesToggle.contains(e.target) && !servicesSub.contains(e.target)){
+        servicesToggle.setAttribute('aria-expanded','false');
+      }
+    }
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && !isMobileMenu() && servicesToggle && servicesToggle.getAttribute('aria-expanded') === 'true'){
+      servicesToggle.setAttribute('aria-expanded','false');
+      servicesToggle.focus();
+    }
+  });
+
+  /* Clean up overlay if resized up to desktop while open */
+  window.addEventListener('resize', function(){
+    if(!isMobileMenu() && primaryNav.classList.contains('open')){ closeMenu(); }
+  });
+
+  /* ---------- Header shadow on scroll ---------- */
+  var header = document.querySelector('header.site');
+  function onScroll(){ header.classList.toggle('scrolled', window.scrollY > 8); }
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* ---------- Listings filter ---------- */
+  var filterBar = document.getElementById('filterBar');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#listingGrid .lcard'));
+  var emptyState = document.getElementById('emptyState');
+  if(filterBar){
+    filterBar.addEventListener('click', function(e){
+      var btn = e.target.closest('.chip');
+      if(!btn) return;
+      Array.prototype.forEach.call(filterBar.querySelectorAll('.chip'), function(c){ c.classList.remove('active'); });
+      btn.classList.add('active');
+      var f = btn.getAttribute('data-filter');
+      var shown = 0;
+      cards.forEach(function(card){
+        var match = (f === 'all') || card.getAttribute('data-category') === f;
+        card.style.display = match ? '' : 'none';
+        if(match) shown++;
+      });
+      emptyState.style.display = shown === 0 ? 'block' : 'none';
+    });
+  }
+
+  /* ---------- Contact form ---------- */
+  var form = document.getElementById('leadForm');
+  var success = document.getElementById('formSuccess');
+  function setInvalid(field, bad){ field.classList.toggle('invalid', bad); }
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = form.name, email = form.email, phone = form.phone, message = form.message;
+      var ok = true;
+      var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+      setInvalid(name.closest('.field'), !name.value.trim()); if(!name.value.trim()) ok = false;
+      setInvalid(email.closest('.field'), !emailOk); if(!emailOk) ok = false;
+      setInvalid(phone.closest('.field'), phone.value.trim().length < 6); if(phone.value.trim().length < 6) ok = false;
+      setInvalid(message.closest('.field'), !message.value.trim()); if(!message.value.trim()) ok = false;
+      if(!ok){
+        var firstBad = form.querySelector('.field.invalid input, .field.invalid textarea');
+        if(firstBad) firstBad.focus();
+        return;
+      }
+      form.style.display = 'none';
+      success.classList.add('show');
+      success.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+    Array.prototype.forEach.call(form.querySelectorAll('input,textarea'), function(el){
+      el.addEventListener('input', function(){ el.closest('.field').classList.remove('invalid'); });
+    });
+  }
+
+  /* ---------- Year ---------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- Init ---------- */
+  showPage((location.hash || '#home').slice(1), false);
+})();
+</script>
+</body>
+</html>

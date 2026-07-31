@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_pages",
+  "info": {
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "Home Page"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": { "type": "component", "component": "blocks.hero", "repeatable": false },
+    "trustLabel": { "type": "string" },
+    "trustChips": { "type": "component", "component": "shared.chip", "repeatable": true },
+    "benefitsEyebrow": { "type": "string" },
+    "benefitsHeading": { "type": "string" },
+    "benefitsLead": { "type": "text" },
+    "benefits": { "type": "component", "component": "blocks.benefit-card", "repeatable": true },
+    "servicesPreviewEyebrow": { "type": "string" },
+    "servicesPreviewHeading": { "type": "string" },
+    "servicesPreviewLead": { "type": "text" },
+    "servicesPreviewButton": { "type": "component", "component": "shared.button", "repeatable": false },
+    "aboutPreview": { "type": "component", "component": "blocks.split-block", "repeatable": false },
+    "cinematicAbout": { "type": "component", "component": "blocks.cinematic-about", "repeatable": false },
+    "featuresEyebrow": { "type": "string" },
+    "featuresHeadingLine1": { "type": "string" },
+    "featuresHeadingLine2": { "type": "string" },
+    "featuresImage": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "featuresImageCaption": { "type": "string" },
+    "testimonialsEyebrow": { "type": "string" },
+    "testimonialsHeading": { "type": "string" },
+    "ctaBand": { "type": "component", "component": "blocks.cta-band", "repeatable": false },
+    "seo": { "type": "component", "component": "shared.seo", "repeatable": false }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "gallery_pages",
+  "info": {
+    "singularName": "gallery-page",
+    "pluralName": "gallery-pages",
+    "displayName": "Gallery Page"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": { "type": "component", "component": "blocks.page-hero", "repeatable": false },
+    "intro": { "type": "text" },
+    "items": { "type": "component", "component": "blocks.gallery-item", "repeatable": true },
+    "seo": { "type": "component", "component": "shared.seo", "repeatable": false }
+  }
+}

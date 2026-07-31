@@ -1,0 +1,12 @@
+---
+import type { StepBlock } from '../lib/types';
+
+interface Props extends StepBlock {}
+const { number, title, text } = Astro.props as Props;
+---
+
+<div class="step reveal">
+  <div class="num">{number}</div>
+  <h3>{title}</h3>
+  {text && <p>{text}</p>}
+</div>

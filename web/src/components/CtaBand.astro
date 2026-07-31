@@ -1,0 +1,30 @@
+---
+import ContourOverlay from './ContourOverlay.astro';
+import Button from './Button.astro';
+import type { CtaBandBlock } from '../lib/types';
+
+interface Props {
+  cta: CtaBandBlock;
+}
+const { cta } = Astro.props as Props;
+---
+
+<section class="section">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <ContourOverlay variant="cta" />
+      <div class="cta-inner">
+        <div>
+          {cta.eyebrow && <span class="eyebrow">{cta.eyebrow}</span>}
+          <h2>{cta.heading}</h2>
+          {cta.text && <p>{cta.text}</p>}
+        </div>
+        {cta.buttons?.length > 0 && (
+          <div class="actions" style="display:flex;gap:.8rem;flex-wrap:wrap">
+            {cta.buttons.map((b) => <Button label={b.label} href={b.href} style={b.style} />)}
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

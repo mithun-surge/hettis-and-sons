@@ -1,0 +1,17 @@
+---
+import Button from './Button.astro';
+import type { CtaDarkBlock } from '../lib/types';
+
+interface Props {
+  cta: CtaDarkBlock;
+}
+const { cta } = Astro.props as Props;
+---
+
+<section class="section section--dark">
+  <div class="wrap cta-dark">
+    {cta.eyebrow && <span class="eyebrow">{cta.eyebrow}</span>}
+    <h2>{cta.heading}</h2>
+    {cta.button?.label && <Button label={cta.button.label} href={cta.button.href} style={cta.button.style} />}
+  </div>
+</section>

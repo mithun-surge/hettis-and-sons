@@ -1,0 +1,80 @@
+---
+import { fetchAPI } from '../lib/strapi';
+import Icon from './Icon.astro';
+import type { SiteSetting, Navigation, Service } from '../lib/types';
+
+const siteSetting = await fetchAPI<SiteSetting>('/site-setting', { populate: '*' });
+const navigation = await fetchAPI<Navigation>('/navigation', { populate: '*' });
+const services = (await fetchAPI<Service[]>('/services', { sort: 'order:asc', fields: ['title', 'slug'] })) || [];
+
+const mainLinks = (navigation?.mainLinks || []).slice().sort((a, b) => a.order - b.order);
+const siteName = siteSetting?.siteName || "Hetti's & Sons";
+const tagline = siteSetting?.tagline || '';
+const year = new Date().getFullYear();
+---
+
+<footer class="site">
+  <div class="contour-overlay" aria-hidden="true">
+    <svg viewBox="0 0 1200 400" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.4">
+      <path d="M-50 320 C 250 240 450 360 700 290 S 1100 230 1260 300"></path>
+      <path d="M-50 280 C 250 200 450 320 700 250 S 1100 190 1260 260"></path>
+      <path d="M-50 240 C 250 160 450 280 700 210 S 1100 150 1260 220"></path>
+      <path d="M-50 200 C 250 120 450 240 700 170 S 1100 110 1260 180"></path>
+    </g></svg>
+  </div>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="brand" href="/">
+          <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <rect width="48" height="48" rx="12" fill="#2D6A4F"></rect>
+            <path d="M8 34c4-6 9-9 16-9s12 3 16 9" stroke="#A9D3BC" stroke-width="2" stroke-linecap="round"></path>
+            <path d="M11 29c3.4-4.6 7.4-7 13-7s9.6 2.4 13 7" stroke="#CDE8D8" stroke-width="2" stroke-linecap="round"></path>
+            <path d="M24 20c0-4 .4-7 3.6-9.4-.6 3.2.4 5 2.2 6.6" stroke="#E0A33A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="24" cy="20" r="1.7" fill="#E0A33A"></circle>
+          </svg>
+          <span>{siteName}<small>{tagline}</small></span>
+        </a>
+        <p class="fabout">{siteSetting?.footerAbout}</p>
+        {siteSetting?.socialLinks && siteSetting.socialLinks.length > 0 && (
+          <div class="socials" aria-label="Social links">
+            {siteSetting.socialLinks.map((s) => (
+              <a href={s.url} aria-label={s.platform}><Icon name={s.platform} /></a>
+            ))}
+          </div>
+        )}
+      </div>
+      <div class="fcol">
+        <h4>Explore</h4>
+        <ul>
+          {mainLinks
+            .filter((l) => l.label !== 'Services')
+            .map((l) => (
+              <li><a href={l.href}>{l.label}</a></li>
+            ))}
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Services</h4>
+        <ul>
+          {services.map((s) => (
+            <li><a href={`/services/${s.slug}`}>{s.title}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Get in touch</h4>
+        <ul>
+          {siteSetting?.phone && <li><a href={`tel:${siteSetting.phone.replace(/\s+/g, '')}`}>{siteSetting.phone}</a></li>}
+          {siteSetting?.email && <li><a href={`mailto:${siteSetting.email}`}>{siteSetting.email}</a></li>}
+          {siteSetting?.address && <li>{siteSetting.address}</li>}
+          {siteSetting?.hours && <li>{siteSetting.hours}</li>}
+        </ul>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>© {year} {siteSetting?.copyrightText}</span>
+      <span>{tagline} · Sri Lanka · <a href="/contact">Book a call</a></span>
+    </div>
+  </div>
+</footer>

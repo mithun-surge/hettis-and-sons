@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_pages",
+  "info": {
+    "singularName": "about-page",
+    "pluralName": "about-pages",
+    "displayName": "About Page"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": { "type": "component", "component": "blocks.page-hero", "repeatable": false },
+    "story": { "type": "component", "component": "blocks.split-block", "repeatable": false },
+    "missionValues": { "type": "component", "component": "blocks.benefit-card", "repeatable": true },
+    "differentiatorsEyebrow": { "type": "string" },
+    "differentiatorsHeading": { "type": "string" },
+    "differentiators": { "type": "component", "component": "blocks.tagged-card", "repeatable": true },
+    "ctaDark": { "type": "component", "component": "blocks.cta-dark", "repeatable": false },
+    "seo": { "type": "component", "component": "shared.seo", "repeatable": false }
+  }
+}

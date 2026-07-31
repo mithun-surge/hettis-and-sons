@@ -1,0 +1,42 @@
+---
+import { mediaUrl } from '../lib/strapi';
+import ContourOverlay from './ContourOverlay.astro';
+import Button from './Button.astro';
+import type { HeroBlock } from '../lib/types';
+
+interface Props {
+  hero: HeroBlock;
+}
+const { hero } = Astro.props as Props;
+
+let headingHtml = hero.heading;
+if (hero.highlightWord && hero.heading.includes(hero.highlightWord)) {
+  headingHtml = hero.heading.replace(hero.highlightWord, `<em>${hero.highlightWord}</em>`);
+}
+---
+
+<section class="hero">
+  <div class="hero-img img-reveal img-reveal-zoom">
+    <img src={mediaUrl(hero.image)} alt={hero.image?.alternativeText || ''} />
+  </div>
+  <ContourOverlay variant="hero" />
+  <div class="wrap hero-inner">
+    {hero.eyebrow && <span class="eyebrow">{hero.eyebrow}</span>}
+    <h1 set:html={headingHtml} />
+    {hero.lead && <p class="lead">{hero.lead}</p>}
+    {hero.buttons?.length > 0 && (
+      <div class="actions">
+        {hero.buttons.map((b) => (
+          <Button label={b.label} href={b.href} style={b.style} />
+        ))}
+      </div>
+    )}
+    {hero.stats?.length > 0 && (
+      <div class="hero-stats">
+        {hero.stats.map((s) => (
+          <div class="stat"><div class="n">{s.value}</div><div class="l">{s.label}</div></div>
+        ))}
+      </div>
+    )}
+  </div>
+</section>

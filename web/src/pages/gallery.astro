@@ -1,0 +1,37 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import GalleryGrid from '../components/gallery/GalleryGrid.astro';
+import '../styles/gallery.css';
+import { fetchAPI } from '../lib/strapi';
+import type { GalleryPage } from '../lib/types';
+
+const galleryPage = await fetchAPI<GalleryPage>('/gallery-page', {
+  populate: {
+    hero: { populate: '*' },
+    items: { populate: '*' },
+    seo: { populate: '*' },
+  },
+});
+
+if (!galleryPage) {
+  return new Response('Gallery page content not found in Strapi', { status: 404 });
+}
+---
+
+<MainLayout title={galleryPage.seo?.metaTitle || 'Gallery'} description={galleryPage.seo?.metaDescription}>
+  <main>
+    <PageHero hero={galleryPage.hero} />
+
+    <section class="section">
+      <div class="wrap">
+        {galleryPage.intro && (
+          <div class="head reveal">
+            <p class="lead">{galleryPage.intro}</p>
+          </div>
+        )}
+        <GalleryGrid items={galleryPage.items} />
+      </div>
+    </section>
+  </main>
+</MainLayout>

@@ -1,0 +1,11 @@
+{
+  "collectionName": "components_blocks_cta_bands",
+  "info": { "displayName": "CTA Band (light rounded card)", "icon": "bell" },
+  "options": {},
+  "attributes": {
+    "eyebrow": { "type": "string" },
+    "heading": { "type": "string", "required": true },
+    "text": { "type": "text" },
+    "buttons": { "type": "component", "component": "shared.button", "repeatable": true }
+  }
+}

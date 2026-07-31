@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_blocks_steps",
+  "info": { "displayName": "Step", "icon": "arrowRight" },
+  "options": {},
+  "attributes": {
+    "number": { "type": "string", "required": true },
+    "title": { "type": "string", "required": true },
+    "text": { "type": "text" }
+  }
+}

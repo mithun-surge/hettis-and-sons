@@ -1,0 +1,13 @@
+---
+import { mediaUrl } from '../lib/strapi';
+import type { BenefitCard } from '../lib/types';
+
+interface Props extends BenefitCard {}
+const { icon, title, text } = Astro.props as Props;
+---
+
+<article class="bcard reveal tilt-card">
+  {icon?.url && <div class="ic"><img src={mediaUrl(icon)} alt="" loading="lazy" /></div>}
+  <h3>{title}</h3>
+  {text && <p>{text}</p>}
+</article>

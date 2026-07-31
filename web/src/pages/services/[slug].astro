@@ -1,0 +1,77 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SplitSection from '../../components/SplitSection.astro';
+import TaggedCard from '../../components/TaggedCard.astro';
+import CtaDark from '../../components/CtaDark.astro';
+import { fetchAPI } from '../../lib/strapi';
+import type { Service } from '../../lib/types';
+
+const { slug } = Astro.params;
+
+const results = await fetchAPI<Service[]>('/services', {
+  filters: { slug: { $eq: slug } },
+  populate: '*',
+});
+const allServices = (await fetchAPI<Service[]>('/services', { sort: 'order:asc', fields: ['title', 'slug'] })) || [];
+
+const service = results && results[0];
+if (!service) {
+  return new Response('Service not found', { status: 404 });
+}
+
+const otherServices = allServices.filter((s) => s.slug !== service.slug);
+---
+
+<MainLayout title={service.seo?.metaTitle || service.title} description={service.seo?.metaDescription || service.summary}>
+  <main>
+    <PageHero
+      hero={{ eyebrow: 'Service', heading: service.title, text: service.heroText, backLinkLabel: 'All services', backLinkHref: '/services' }}
+      cta={{ label: service.ctaLabel || 'Get a quote', href: '/contact', style: 'gold' }}
+    />
+
+    <section class="section">
+      <SplitSection
+        eyebrow={service.overviewEyebrow}
+        heading={service.overviewHeading || ''}
+        paragraph1={service.overviewLead}
+        ticks={service.ticks}
+        image={service.image}
+      />
+    </section>
+
+    {service.included?.length > 0 && (
+      <section class="section section--mist">
+        <div class="wrap">
+          <div class="head reveal">
+            {service.includedEyebrow && <span class="eyebrow">{service.includedEyebrow}</span>}
+            {service.includedHeading && <h2>{service.includedHeading}</h2>}
+          </div>
+          <div class="grid services-grid">
+            {service.included.map((c) => <TaggedCard tag={c.tag} title={c.title} text={c.text} />)}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <section class="section">
+      <div class="wrap">
+        <div class="head reveal">
+          <span class="eyebrow">Keep exploring</span>
+          <h2>Other services</h2>
+        </div>
+        <div class="svc-explore reveal">
+          {otherServices.map((s) => <a href={`/services/${s.slug}`}>{s.title}</a>)}
+        </div>
+      </div>
+    </section>
+
+    <CtaDark
+      cta={{
+        eyebrow: service.ctaEyebrow,
+        heading: service.ctaHeading || '',
+        button: { label: service.ctaButtonLabel || 'Book a call', href: '/contact', style: 'gold' },
+      }}
+    />
+  </main>
+</MainLayout>

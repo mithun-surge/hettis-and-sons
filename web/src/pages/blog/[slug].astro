@@ -1,0 +1,50 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { mediaUrl, fetchAPI } from '../../lib/strapi';
+import '../../styles/blog.css';
+import type { BlogPost } from '../../lib/types';
+
+const { slug } = Astro.params;
+
+const results = await fetchAPI<BlogPost[]>('/blog-posts', {
+  filters: { slug: { $eq: slug } },
+  populate: '*',
+});
+const post = results && results[0];
+if (!post) {
+  return new Response('Blog post not found', { status: 404 });
+}
+
+const paragraphs = (post.content || '').split(/\n\s*\n/).filter(Boolean);
+const formattedDate = post.publishDate
+  ? new Date(post.publishDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+  : '';
+---
+
+<MainLayout title={post.seo?.metaTitle || post.title} description={post.seo?.metaDescription || post.excerpt}>
+  <main>
+    <PageHero
+      hero={{
+        eyebrow: post.category || 'Blog',
+        heading: post.title,
+        text: [post.author, formattedDate].filter(Boolean).join(' · '),
+        backLinkLabel: 'All posts',
+        backLinkHref: '/blog',
+      }}
+    />
+
+    <section class="section">
+      <div class="wrap">
+        {post.coverImage?.url && (
+          <div class="post-cover img-reveal img-reveal-zoom">
+            <img src={mediaUrl(post.coverImage)} alt={post.coverImage.alternativeText || post.title} />
+          </div>
+        )}
+        <div class="post-body">
+          {paragraphs.map((p) => <p>{p}</p>)}
+        </div>
+      </div>
+    </section>
+  </main>
+</MainLayout>

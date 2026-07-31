@@ -1,0 +1,30 @@
+---
+import type { CinematicAboutBlock } from '../../lib/types';
+
+interface Props {
+  about: CinematicAboutBlock;
+}
+const { about } = Astro.props as Props;
+---
+
+<section class="cine cine-about">
+  <div class="wrap">
+    <div class="cine-about-card">
+      {about.label && <span class="cine-about-label">{about.label}</span>}
+      <h2 class="cine-about-heading split-reveal">
+        {about.headingPre}{' '}
+        {about.headingItalicAccent && <em class="cine-accent">{about.headingItalicAccent}</em>}{' '}
+        {about.headingPost}
+      </h2>
+      <p class="cine-about-body letter-reveal">{about.bodyText}</p>
+      {about.button?.label && (
+        <a href={about.button.href} class="cine-btn btn">
+          {about.button.label}
+          <span class="cine-btn-circle">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </a>
+      )}
+    </div>
+  </div>
+</section>

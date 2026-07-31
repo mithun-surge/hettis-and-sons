@@ -1,0 +1,42 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import FilterBar from '../../components/FilterBar.astro';
+import ListingCard from '../../components/ListingCard.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { fetchAPI } from '../../lib/strapi';
+import type { ListingsPage, Listing } from '../../lib/types';
+
+const listingsPage = await fetchAPI<ListingsPage>('/listings-page', {
+  populate: {
+    hero: { populate: '*' },
+    filters: { populate: '*' },
+    ctaBand: { populate: '*' },
+    seo: { populate: '*' },
+  },
+});
+const listings = (await fetchAPI<Listing[]>('/listings', { sort: 'order:asc', populate: '*' })) || [];
+
+if (!listingsPage) {
+  return new Response('Listings page content not found in Strapi', { status: 404 });
+}
+---
+
+<MainLayout title={listingsPage.seo?.metaTitle || 'Listings'} description={listingsPage.seo?.metaDescription}>
+  <main>
+    <PageHero hero={listingsPage.hero} />
+
+    <section class="section">
+      <div class="wrap">
+        <FilterBar filters={listingsPage.filters} />
+        <div class="grid listings" id="listingGrid">
+          {listings.map((l) => <ListingCard {...l} />)}
+          <div class="empty" id="emptyState">No listings in this category yet — <a href="/contact" class="go" style="display:inline">ask us what's available →</a></div>
+        </div>
+      </div>
+    </section>
+
+    <CtaBand cta={listingsPage.ctaBand} />
+  </main>
+  <script src="../../scripts/listings.js"></script>
+</MainLayout>

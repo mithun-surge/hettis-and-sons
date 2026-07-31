@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_blocks_cinematic_abouts",
+  "info": { "displayName": "Cinematic About", "icon": "italic" },
+  "options": {},
+  "attributes": {
+    "label": { "type": "string" },
+    "headingPre": { "type": "string" },
+    "headingItalicAccent": { "type": "string" },
+    "headingPost": { "type": "string" },
+    "bodyText": { "type": "text", "required": true },
+    "button": { "type": "component", "component": "shared.button", "repeatable": false }
+  }
+}

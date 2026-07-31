@@ -1,0 +1,12 @@
+---
+import type { TaggedCard } from '../lib/types';
+
+interface Props extends TaggedCard {}
+const { tag, title, text } = Astro.props as Props;
+---
+
+<article class="scard reveal tilt-card">
+  {tag && <span class="tag">{tag}</span>}
+  <h3>{title}</h3>
+  {text && <p>{text}</p>}
+</article>

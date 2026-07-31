@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_blocks_split_blocks",
+  "info": { "displayName": "Split Block", "icon": "layout" },
+  "options": {},
+  "attributes": {
+    "eyebrow": { "type": "string" },
+    "heading": { "type": "string", "required": true },
+    "paragraph1": { "type": "text" },
+    "paragraph2": { "type": "text" },
+    "image": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "badgeNumber": { "type": "string" },
+    "badgeLabel": { "type": "string" },
+    "ticks": { "type": "component", "component": "shared.tick", "repeatable": true },
+    "button": { "type": "component", "component": "shared.button", "repeatable": false }
+  }
+}

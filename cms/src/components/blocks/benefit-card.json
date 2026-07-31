@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_blocks_benefit_cards",
+  "info": { "displayName": "Benefit Card", "icon": "star" },
+  "options": {},
+  "attributes": {
+    "icon": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "title": { "type": "string", "required": true },
+    "text": { "type": "text" }
+  }
+}

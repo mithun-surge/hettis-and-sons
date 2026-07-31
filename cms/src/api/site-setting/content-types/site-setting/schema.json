@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "site_settings",
+  "info": {
+    "singularName": "site-setting",
+    "pluralName": "site-settings",
+    "displayName": "Site Setting",
+    "description": "Global site identity, contact info and social links"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "siteName": { "type": "string", "required": true },
+    "tagline": { "type": "string" },
+    "logo": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "phone": { "type": "string" },
+    "email": { "type": "string" },
+    "address": { "type": "string" },
+    "hours": { "type": "string" },
+    "footerAbout": { "type": "text" },
+    "copyrightText": { "type": "string" },
+    "socialLinks": { "type": "component", "component": "shared.social-link", "repeatable": true }
+  }
+}

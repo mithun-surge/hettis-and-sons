@@ -1,0 +1,24 @@
+---
+import { mediaUrl } from '../../lib/strapi';
+import type { PageHeroBlock, StrapiMedia } from '../../lib/types';
+
+interface Props {
+  hero: PageHeroBlock;
+  image?: StrapiMedia;
+}
+const { hero, image } = Astro.props as Props;
+---
+
+<section class="svc-cine svc-hero">
+  <div class="svc-hero-img cine-kenburns">
+    <img src={mediaUrl(image)} alt={image?.alternativeText || ''} />
+  </div>
+  <div class="noise-overlay"></div>
+  <div class="svc-hero-gradient"></div>
+
+  <div class="svc-hero-content">
+    {hero.eyebrow && <span class="eyebrow">{hero.eyebrow}</span>}
+    <h1 class="svc-hero-heading split-reveal">{hero.heading}</h1>
+    {hero.text && <p class="svc-hero-text">{hero.text}</p>}
+  </div>
+</section>

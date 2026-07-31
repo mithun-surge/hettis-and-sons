@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services",
+  "info": {
+    "singularName": "service",
+    "pluralName": "services",
+    "displayName": "Service"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "slug": { "type": "uid", "targetField": "title", "required": true },
+    "tag": { "type": "string" },
+    "summary": { "type": "text" },
+    "heroText": { "type": "text" },
+    "ctaLabel": { "type": "string" },
+    "overviewEyebrow": { "type": "string" },
+    "overviewHeading": { "type": "string" },
+    "overviewLead": { "type": "text" },
+    "image": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "ticks": { "type": "component", "component": "shared.tick", "repeatable": true },
+    "includedEyebrow": { "type": "string" },
+    "includedHeading": { "type": "string" },
+    "included": { "type": "component", "component": "blocks.tagged-card", "repeatable": true },
+    "ctaEyebrow": { "type": "string" },
+    "ctaHeading": { "type": "string" },
+    "ctaButtonLabel": { "type": "string" },
+    "order": { "type": "integer", "default": 0 },
+    "featured": { "type": "boolean", "default": false },
+    "seo": { "type": "component", "component": "shared.seo", "repeatable": false }
+  }
+}

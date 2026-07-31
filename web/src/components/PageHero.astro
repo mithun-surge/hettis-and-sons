@@ -1,0 +1,30 @@
+---
+import ContourOverlay from './ContourOverlay.astro';
+import Button from './Button.astro';
+import type { PageHeroBlock, ButtonBlock } from '../lib/types';
+
+interface Props {
+  hero: PageHeroBlock;
+  cta?: ButtonBlock;
+  explore?: { label: string; href: string }[];
+}
+const { hero, cta, explore } = Astro.props as Props;
+---
+
+<section class="phero">
+  <ContourOverlay variant="phero" />
+  <div class="wrap">
+    {hero.backLinkHref && (
+      <a class="back-link" href={hero.backLinkHref}>← {hero.backLinkLabel || 'Back'}</a>
+    )}
+    {hero.eyebrow && <span class="eyebrow">{hero.eyebrow}</span>}
+    <h1>{hero.heading}</h1>
+    {hero.text && <p>{hero.text}</p>}
+    {cta && <Button label={cta.label} href={cta.href} style={cta.style} />}
+    {explore && explore.length > 0 && (
+      <div class="svc-explore reveal">
+        {explore.map((e) => <a href={e.href}>{e.label}</a>)}
+      </div>
+    )}
+  </div>
+</section>

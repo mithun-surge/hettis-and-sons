@@ -1,0 +1,36 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import TeamCard from '../components/team/TeamCard.astro';
+import '../styles/team.css';
+import { fetchAPI } from '../lib/strapi';
+import type { TeamPage, TeamMember } from '../lib/types';
+
+const teamPage = await fetchAPI<TeamPage>('/team-page', {
+  populate: { hero: { populate: '*' }, seo: { populate: '*' } },
+});
+const members = (await fetchAPI<TeamMember[]>('/team-members', { sort: 'order:asc', populate: '*' })) || [];
+
+if (!teamPage) {
+  return new Response('Team page content not found in Strapi', { status: 404 });
+}
+---
+
+<MainLayout title={teamPage.seo?.metaTitle || 'Team'} description={teamPage.seo?.metaDescription}>
+  <main>
+    <PageHero hero={teamPage.hero} />
+
+    <section class="section">
+      <div class="wrap">
+        {teamPage.intro && (
+          <div class="head reveal">
+            <p class="lead">{teamPage.intro}</p>
+          </div>
+        )}
+        <div class="grid team-grid">
+          {members.map((m) => <TeamCard {...m} />)}
+        </div>
+      </div>
+    </section>
+  </main>
+</MainLayout>

@@ -1,0 +1,62 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import StepCard from '../../components/StepCard.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import CtaDark from '../../components/CtaDark.astro';
+import CinematicServicesHero from '../../components/cinematic/CinematicServicesHero.astro';
+import CreamBlock from '../../components/cinematic/CreamBlock.astro';
+import ServicesShowcase from '../../components/cinematic/ServicesShowcase.astro';
+import '../../styles/cinematic.css';
+import { fetchAPI } from '../../lib/strapi';
+import type { ServicesPage, Service, Faq } from '../../lib/types';
+
+const servicesPage = await fetchAPI<ServicesPage>('/services-page', {
+  populate: {
+    hero: { populate: '*' },
+    heroImage: { populate: '*' },
+    creamIntro: { populate: '*' },
+    steps: { populate: '*' },
+    ctaDark: { populate: '*' },
+    seo: { populate: '*' },
+  },
+});
+const services = (await fetchAPI<Service[]>('/services', { sort: 'order:asc', populate: '*' })) || [];
+const faqs = (await fetchAPI<Faq[]>('/faqs', { sort: 'order:asc' })) || [];
+
+if (!servicesPage) {
+  return new Response('Services page content not found in Strapi', { status: 404 });
+}
+---
+
+<MainLayout title={servicesPage.seo?.metaTitle || 'Services'} description={servicesPage.seo?.metaDescription}>
+  <main>
+    <CinematicServicesHero hero={servicesPage.hero} image={servicesPage.heroImage} />
+    <CreamBlock block={servicesPage.creamIntro} />
+    <ServicesShowcase services={services} />
+
+    <section class="section section--mist">
+      <div class="wrap">
+        <div class="head reveal">
+          {servicesPage.howItWorksEyebrow && <span class="eyebrow">{servicesPage.howItWorksEyebrow}</span>}
+          {servicesPage.howItWorksHeading && <h2>{servicesPage.howItWorksHeading}</h2>}
+          {servicesPage.howItWorksLead && <p class="lead">{servicesPage.howItWorksLead}</p>}
+        </div>
+        <div class="steps">
+          {servicesPage.steps.map((s) => <StepCard number={s.number} title={s.title} text={s.text} />)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="head center reveal">
+          {servicesPage.faqEyebrow && <span class="eyebrow">{servicesPage.faqEyebrow}</span>}
+          {servicesPage.faqHeading && <h2>{servicesPage.faqHeading}</h2>}
+        </div>
+        <FaqAccordion faqs={faqs} />
+      </div>
+    </section>
+
+    <CtaDark cta={servicesPage.ctaDark} />
+  </main>
+</MainLayout>

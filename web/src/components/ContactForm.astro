@@ -1,0 +1,37 @@
+---
+interface Props {
+  formNote?: string;
+  successHeading?: string;
+  successText?: string;
+}
+const { formNote, successHeading, successText } = Astro.props as Props;
+---
+
+<form class="lead-form" id="leadForm" novalidate>
+  <div class="field">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Your full name" autocomplete="name" required />
+    <div class="err">Please enter your name.</div>
+  </div>
+  <div class="field">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" required />
+    <div class="err">Please enter a valid email address.</div>
+  </div>
+  <div class="field">
+    <label for="phone">Phone</label>
+    <input type="tel" id="phone" name="phone" placeholder="+94 7X XXX XXXX" autocomplete="tel" required />
+    <div class="err">Please enter a phone number.</div>
+  </div>
+  <div class="field">
+    <label for="message">Message</label>
+    <textarea id="message" name="message" placeholder="Tell us the product, grade and volume — or the project you have in mind." required></textarea>
+    <div class="err">Please add a short message.</div>
+  </div>
+  <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center">Send enquiry <span class="arr">→</span></button>
+  {formNote && <p class="form-note">{formNote}</p>}
+</form>
+<div class="form-success" id="formSuccess" role="status">
+  <strong>{successHeading}</strong>
+  <p style="margin:.4rem 0 0">{successText}</p>
+</div>

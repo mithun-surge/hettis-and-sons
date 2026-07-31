@@ -1,0 +1,53 @@
+---
+import Icon from '../Icon.astro';
+import type { CreamBlock } from '../../lib/types';
+
+interface Props {
+  block: CreamBlock;
+}
+const { block } = Astro.props as Props;
+---
+
+<section class="svc-cine svc-cream">
+  <div class="svc-cream-top">
+    {block.paragraph && <p class="split-reveal">{block.paragraph}</p>}
+    <div class="svc-cream-actions">
+      {block.primaryButton?.label && (
+        <a href={block.primaryButton.href} class="svc-pill svc-pill-dark btn">
+          <span class="svc-pill-icon"><Icon name="phone" /></span>
+          {block.primaryButton.label}
+        </a>
+      )}
+      {block.secondaryButton?.label && (
+        <a href={block.secondaryButton.href} class="svc-pill svc-pill-muted btn">
+          <span class="svc-pill-icon">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+          {block.secondaryButton.label}
+        </a>
+      )}
+    </div>
+  </div>
+
+  <div class="svc-divider" aria-hidden="true">
+    <span class="dot"></span>
+    <span class="line"></span>
+    <span class="dot"></span>
+  </div>
+
+  <div class="svc-cream-bottom" data-pin-container>
+    <div class="svc-cream-badge">
+      <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect width="48" height="48" rx="12" fill="#321C04"></rect>
+        <path d="M8 34c4-6 9-9 16-9s12 3 16 9" stroke="#F6E4CF" stroke-width="2" stroke-linecap="round"></path>
+        <path d="M11 29c3.4-4.6 7.4-7 13-7s9.6 2.4 13 7" stroke="#D9C4AA" stroke-width="2" stroke-linecap="round"></path>
+        <path d="M24 20c0-4 .4-7 3.6-9.4-.6 3.2.4 5 2.2 6.6" stroke="#F6E4CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <circle cx="24" cy="20" r="1.7" fill="#F6E4CF"></circle>
+      </svg>
+      {(block.badgeLine1 || block.badgeLine2) && (
+        <span>{block.badgeLine1}<br />{block.badgeLine2}</span>
+      )}
+    </div>
+    {block.closingParagraph && <p class="pin-letter-reveal">{block.closingParagraph}</p>}
+  </div>
+</section>

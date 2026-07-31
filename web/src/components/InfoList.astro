@@ -1,0 +1,25 @@
+---
+import { mediaUrl } from '../lib/strapi';
+import type { InfoItem } from '../lib/types';
+
+interface Props {
+  items: InfoItem[];
+}
+const { items } = Astro.props as Props;
+---
+
+<ul class="info-list">
+  {items.map((item) => (
+    <li>
+      {item.icon?.url && <span class="ic"><img src={mediaUrl(item.icon)} alt="" loading="lazy" /></span>}
+      <div>
+        <div class="k">{item.label}</div>
+        {item.href ? (
+          <a class="v" href={item.href}>{item.value}</a>
+        ) : (
+          <div class="v">{item.value}</div>
+        )}
+      </div>
+    </li>
+  ))}
+</ul>

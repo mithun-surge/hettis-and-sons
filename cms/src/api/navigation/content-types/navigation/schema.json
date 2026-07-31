@@ -1,0 +1,15 @@
+{
+  "kind": "singleType",
+  "collectionName": "navigations",
+  "info": {
+    "singularName": "navigation",
+    "pluralName": "navigations",
+    "displayName": "Navigation",
+    "description": "Top-level nav links (the Services submenu is generated from the Service collection)"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "mainLinks": { "type": "component", "component": "shared.nav-link", "repeatable": true }
+  }
+}

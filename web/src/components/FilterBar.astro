@@ -1,0 +1,14 @@
+---
+import type { FilterChip } from '../lib/types';
+
+interface Props {
+  filters: FilterChip[];
+}
+const { filters } = Astro.props as Props;
+---
+
+<div class="filterbar reveal" id="filterBar" role="group" aria-label="Filter listings">
+  {filters.map((f, i) => (
+    <button class={`chip${i === 0 ? ' active' : ''}`} data-filter={f.value}>{f.label}</button>
+  ))}
+</div>

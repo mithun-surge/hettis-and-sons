@@ -1,0 +1,9 @@
+{
+  "collectionName": "components_shared_filter_chips",
+  "info": { "displayName": "Filter Chip", "icon": "filter" },
+  "options": {},
+  "attributes": {
+    "label": { "type": "string", "required": true },
+    "value": { "type": "string", "required": true }
+  }
+}

@@ -1,0 +1,19 @@
+---
+import { mediaUrl } from '../../lib/strapi';
+import type { GalleryItem } from '../../lib/types';
+
+interface Props {
+  items: GalleryItem[];
+}
+const { items } = Astro.props as Props;
+---
+
+<div class="grid gallery-grid">
+  {items.map((item) => (
+    <div class="gallery-item reveal">
+      <img loading="lazy" decoding="async" src={mediaUrl(item.image)} alt={item.caption || ''} />
+      {item.category && <span class="cat">{item.category}</span>}
+      {item.caption && <span class="cap">{item.caption}</span>}
+    </div>
+  ))}
+</div>

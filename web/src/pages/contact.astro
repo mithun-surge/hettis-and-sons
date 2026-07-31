@@ -1,0 +1,46 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ContactForm from '../components/ContactForm.astro';
+import InfoList from '../components/InfoList.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import { fetchAPI } from '../lib/strapi';
+import type { ContactPage, SiteSetting } from '../lib/types';
+
+const contact = await fetchAPI<ContactPage>('/contact-page', {
+  populate: {
+    hero: { populate: '*' },
+    contactInfo: { populate: '*' },
+    seo: { populate: '*' },
+  },
+});
+const siteSetting = await fetchAPI<SiteSetting>('/site-setting', { populate: '*' });
+
+if (!contact) {
+  return new Response('Contact page content not found in Strapi', { status: 404 });
+}
+---
+
+<MainLayout title={contact.seo?.metaTitle || 'Contact'} description={contact.seo?.metaDescription}>
+  <main>
+    <PageHero hero={contact.hero} />
+
+    <section class="section">
+      <div class="wrap contact-grid">
+        <div class="reveal">
+          <ContactForm formNote={contact.formNote} successHeading={contact.successHeading} successText={contact.successText} />
+        </div>
+        <div class="reveal">
+          <InfoList items={contact.contactInfo} />
+          {contact.mapEmbedUrl && (
+            <div class="map">
+              <iframe title="Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src={contact.mapEmbedUrl}></iframe>
+            </div>
+          )}
+          <SocialLinks links={siteSetting?.socialLinks || []} />
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="../scripts/contact.js"></script>
+</MainLayout>

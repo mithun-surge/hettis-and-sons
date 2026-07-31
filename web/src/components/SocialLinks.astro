@@ -1,0 +1,17 @@
+---
+import Icon from './Icon.astro';
+import type { SocialLink } from '../lib/types';
+
+interface Props {
+  links: SocialLink[];
+}
+const { links } = Astro.props as Props;
+---
+
+{links?.length > 0 && (
+  <div class="socials" aria-label="Social links">
+    {links.map((s) => (
+      <a href={s.url} aria-label={s.platform}><Icon name={s.platform} /></a>
+    ))}
+  </div>
+)}

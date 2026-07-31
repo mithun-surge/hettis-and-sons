@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "listings",
+  "info": {
+    "singularName": "listing",
+    "pluralName": "listings",
+    "displayName": "Listing"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "slug": { "type": "uid", "targetField": "title", "required": true },
+    "category": {
+      "type": "enumeration",
+      "enum": ["produce", "tea-spices", "grains", "agri-tech", "logistics"],
+      "required": true
+    },
+    "badge": {
+      "type": "enumeration",
+      "enum": ["PRODUCT", "PROJECT", "SERVICE", "PROGRAM"],
+      "default": "PRODUCT"
+    },
+    "description": { "type": "text" },
+    "image": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "ctaLabel": { "type": "string", "default": "Enquire" },
+    "order": { "type": "integer", "default": 0 }
+  }
+}

@@ -1,0 +1,27 @@
+---
+import { mediaUrl } from '../../lib/strapi';
+import type { TeamMember } from '../../lib/types';
+
+interface Props extends TeamMember {}
+const { name, role, bio, photo } = Astro.props as Props;
+
+const initials = name
+  .split(' ')
+  .map((n) => n[0])
+  .slice(0, 2)
+  .join('')
+  .toUpperCase();
+---
+
+<article class="team-card reveal tilt-card">
+  <div class="ph">
+    {photo?.url ? (
+      <img loading="lazy" decoding="async" src={mediaUrl(photo)} alt={photo.alternativeText || name} />
+    ) : (
+      <span class="initials">{initials}</span>
+    )}
+  </div>
+  <h3>{name}</h3>
+  {role && <div class="role">{role}</div>}
+  {bio && <p>{bio}</p>}
+</article>

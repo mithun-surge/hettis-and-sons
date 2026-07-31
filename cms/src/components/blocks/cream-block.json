@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_blocks_cream_blocks",
+  "info": { "displayName": "Cream Intro Block", "icon": "layout" },
+  "options": {},
+  "attributes": {
+    "paragraph": { "type": "text" },
+    "primaryButton": { "type": "component", "component": "shared.button", "repeatable": false },
+    "secondaryButton": { "type": "component", "component": "shared.button", "repeatable": false },
+    "badgeLine1": { "type": "string" },
+    "badgeLine2": { "type": "string" },
+    "closingParagraph": { "type": "text" }
+  }
+}

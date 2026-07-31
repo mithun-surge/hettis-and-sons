@@ -1,0 +1,93 @@
+---
+import { fetchAPI } from '../lib/strapi';
+import type { SiteSetting, Navigation, Service } from '../lib/types';
+
+interface Props {
+  currentPath: string;
+}
+const { currentPath } = Astro.props as Props;
+
+const siteSetting = await fetchAPI<SiteSetting>('/site-setting', { populate: '*' });
+const navigation = await fetchAPI<Navigation>('/navigation', { populate: '*' });
+const services = (await fetchAPI<Service[]>('/services', { sort: 'order:asc', fields: ['title', 'slug'] })) || [];
+
+const mainLinks = (navigation?.mainLinks || []).slice().sort((a, b) => a.order - b.order);
+const siteName = siteSetting?.siteName || "Hetti's & Sons";
+const tagline = siteSetting?.tagline || '';
+
+const isActive = (href: string) => (href === '/' ? currentPath === '/' : currentPath.startsWith(href));
+---
+
+<header class="site" id="top">
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label={`${siteName} home`}>
+      <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect width="48" height="48" rx="12" fill="#1B4332"></rect>
+        <path d="M8 34c4-6 9-9 16-9s12 3 16 9" stroke="#40916C" stroke-width="2" stroke-linecap="round"></path>
+        <path d="M11 29c3.4-4.6 7.4-7 13-7s9.6 2.4 13 7" stroke="#6FB68F" stroke-width="2" stroke-linecap="round"></path>
+        <path d="M14.5 24.5c2.7-3.4 5.7-5.2 9.5-5.2s6.8 1.8 9.5 5.2" stroke="#A9D3BC" stroke-width="2" stroke-linecap="round"></path>
+        <path d="M24 20c0-4 .4-7 3.6-9.4-.6 3.2.4 5 2.2 6.6" stroke="#E0A33A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <circle cx="24" cy="20" r="1.7" fill="#E0A33A"></circle>
+      </svg>
+      <span>{siteName}<small>{tagline}</small></span>
+    </a>
+
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+      <div class="menu-head">
+        <span class="brand">
+          <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <rect width="48" height="48" rx="12" fill="#2D6A4F"></rect>
+            <path d="M8 34c4-6 9-9 16-9s12 3 16 9" stroke="#A9D3BC" stroke-width="2" stroke-linecap="round"></path>
+            <path d="M11 29c3.4-4.6 7.4-7 13-7s9.6 2.4 13 7" stroke="#CDE8D8" stroke-width="2" stroke-linecap="round"></path>
+            <path d="M24 20c0-4 .4-7 3.6-9.4-.6 3.2.4 5 2.2 6.6" stroke="#E0A33A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="24" cy="20" r="1.7" fill="#E0A33A"></circle>
+          </svg>
+          <span>{siteName}<small>{tagline}</small></span>
+        </span>
+        <button class="menu-close" id="menuClose" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </button>
+      </div>
+
+      <ul class="nav-links" id="navMenu">
+        {mainLinks.map((link) =>
+          link.label === 'Services' ? (
+            <li class="has-sub">
+              <button
+                type="button"
+                class="sub-toggle"
+                id="servicesToggle"
+                aria-expanded="false"
+                aria-controls="servicesSub"
+                aria-haspopup="true"
+                aria-current={currentPath.startsWith('/services') ? 'true' : undefined}
+              >
+                Services
+                <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+              </button>
+              <ul class="sub" id="servicesSub" aria-label="Services">
+                <li class="sub-head" aria-hidden="true">Our services</li>
+                <li><a href="/services" aria-current={currentPath === '/services' ? 'page' : undefined}>All services overview</a></li>
+                {services.map((s) => (
+                  <li><a href={`/services/${s.slug}`} aria-current={currentPath === `/services/${s.slug}` ? 'page' : undefined}>{s.title}</a></li>
+                ))}
+              </ul>
+            </li>
+          ) : (
+            <li>
+              <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>{link.label}</a>
+            </li>
+          )
+        )}
+        <li class="nav-mobile-cta"><a href="/contact" class="btn btn-gold">Book a call <span class="arr">→</span></a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="/contact" class="btn btn-gold">Book a call <span class="arr">→</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>

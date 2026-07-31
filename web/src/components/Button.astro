@@ -1,0 +1,13 @@
+---
+interface Props {
+  label: string;
+  href: string;
+  style?: 'gold' | 'pine' | 'ghost';
+  class?: string;
+}
+const { label, href, style = 'gold', class: className = '' } = Astro.props as Props;
+---
+
+<a href={href} class={`btn btn-${style} ${className}`}>
+  {label} <span class="arr">→</span>
+</a>

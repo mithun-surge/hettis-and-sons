@@ -1,0 +1,11 @@
+{
+  "collectionName": "components_blocks_info_items",
+  "info": { "displayName": "Info Item", "icon": "information" },
+  "options": {},
+  "attributes": {
+    "icon": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "label": { "type": "string", "required": true },
+    "value": { "type": "string", "required": true },
+    "href": { "type": "string" }
+  }
+}

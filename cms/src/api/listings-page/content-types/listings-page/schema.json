@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "listings_pages",
+  "info": {
+    "singularName": "listings-page",
+    "pluralName": "listings-pages",
+    "displayName": "Listings Page"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": { "type": "component", "component": "blocks.page-hero", "repeatable": false },
+    "filters": { "type": "component", "component": "shared.filter-chip", "repeatable": true },
+    "ctaBand": { "type": "component", "component": "blocks.cta-band", "repeatable": false },
+    "seo": { "type": "component", "component": "shared.seo", "repeatable": false }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_blocks_page_heroes",
+  "info": { "displayName": "Page Hero", "icon": "landscape" },
+  "options": {},
+  "attributes": {
+    "eyebrow": { "type": "string" },
+    "heading": { "type": "string", "required": true },
+    "text": { "type": "text" },
+    "backLinkLabel": { "type": "string" },
+    "backLinkHref": { "type": "string" }
+  }
+}

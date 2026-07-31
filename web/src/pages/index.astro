@@ -1,0 +1,77 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import BenefitCard from '../components/BenefitCard.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import CtaBand from '../components/CtaBand.astro';
+import CinematicHero from '../components/cinematic/CinematicHero.astro';
+import CinematicAbout from '../components/cinematic/CinematicAbout.astro';
+import CinematicFeatures from '../components/cinematic/CinematicFeatures.astro';
+import '../styles/cinematic.css';
+import { fetchAPI } from '../lib/strapi';
+import type { HomePage, Service, Testimonial } from '../lib/types';
+
+const home = await fetchAPI<HomePage>('/home-page', {
+  populate: {
+    hero: { populate: '*' },
+    cinematicAbout: { populate: '*' },
+    featuresImage: { populate: '*' },
+    ctaBand: { populate: '*' },
+    benefits: { populate: '*' },
+    trustChips: { populate: '*' },
+    seo: { populate: '*' },
+  },
+});
+const services = (await fetchAPI<Service[]>('/services', { filters: { featured: { $eq: true } }, sort: 'order:asc', populate: '*' })) || [];
+const testimonials = (await fetchAPI<Testimonial[]>('/testimonials', { sort: 'order:asc' })) || [];
+
+if (!home) {
+  return new Response('Home page content not found in Strapi', { status: 404 });
+}
+---
+
+<MainLayout title={home.seo?.metaTitle || "Hetti's & Sons"} description={home.seo?.metaDescription}>
+  <main>
+    <CinematicHero hero={home.hero} />
+    <CinematicAbout about={home.cinematicAbout} />
+    <CinematicFeatures
+      eyebrow={home.featuresEyebrow}
+      headingLine1={home.featuresHeadingLine1}
+      headingLine2={home.featuresHeadingLine2}
+      image={home.featuresImage}
+      imageCaption={home.featuresImageCaption}
+      services={services}
+    />
+
+    <TrustStrip label={home.trustLabel} chips={home.trustChips} />
+
+    <section class="section">
+      <div class="wrap">
+        <div class="head reveal">
+          {home.benefitsEyebrow && <span class="eyebrow">{home.benefitsEyebrow}</span>}
+          {home.benefitsHeading && <h2>{home.benefitsHeading}</h2>}
+          {home.benefitsLead && <p class="lead">{home.benefitsLead}</p>}
+        </div>
+        <div class="grid benefits">
+          {home.benefits.map((b) => <BenefitCard icon={b.icon} title={b.title} text={b.text} />)}
+        </div>
+      </div>
+    </section>
+
+    {testimonials.length > 0 && (
+      <section class="section section--mist">
+        <div class="wrap">
+          <div class="head center reveal">
+            {home.testimonialsEyebrow && <span class="eyebrow">{home.testimonialsEyebrow}</span>}
+            {home.testimonialsHeading && <h2>{home.testimonialsHeading}</h2>}
+          </div>
+          <div class="grid tgrid">
+            {testimonials.map((t) => <TestimonialCard {...t} />)}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <CtaBand cta={home.ctaBand} />
+  </main>
+</MainLayout>

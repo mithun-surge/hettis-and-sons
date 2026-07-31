@@ -1,0 +1,62 @@
+---
+import { mediaUrl } from '../../lib/strapi';
+import Icon from '../Icon.astro';
+import type { Service, StrapiMedia } from '../../lib/types';
+
+interface Props {
+  eyebrow?: string;
+  headingLine1?: string;
+  headingLine2?: string;
+  image?: StrapiMedia;
+  imageCaption?: string;
+  services: Service[];
+}
+const { eyebrow, headingLine1, headingLine2, image, imageCaption, services } = Astro.props as Props;
+---
+
+<section class="cine cine-features">
+  <div class="bg-noise"></div>
+  <div class="wrap">
+    <div class="cine-features-head">
+      {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+      {headingLine1 && <h2 class="split-reveal">{headingLine1}</h2>}
+      {headingLine2 && <h2 class="split-reveal line-2">{headingLine2}</h2>}
+    </div>
+
+    <div class="cine-card-grid">
+      {image?.url && (
+        <div class="cine-card cine-card--image img-reveal">
+          <div class="cine-kenburns" style="position:absolute;inset:0">
+            <img src={mediaUrl(image)} alt={image.alternativeText || ''} />
+          </div>
+          {imageCaption && <div class="cine-card-caption">{imageCaption}</div>}
+        </div>
+      )}
+
+      {services.map((s, i) => (
+        <article class="cine-card cine-card--service tilt-card">
+          {s.image?.url && (
+            <div class="cine-card-icon">
+              <img src={mediaUrl(s.image)} alt="" loading="lazy" />
+            </div>
+          )}
+          <div class="cine-card-title">
+            <h3>{s.title}.</h3>
+            <span class="num">{String(i + 1).padStart(2, '0')}</span>
+          </div>
+          {s.ticks?.length > 0 && (
+            <ul class="cine-card-checklist">
+              {s.ticks.map((t) => (
+                <li><Icon name="check" /> <span>{t.text}</span></li>
+              ))}
+            </ul>
+          )}
+          <a href={`/services/${s.slug}`} class="cine-card-more">
+            Learn more
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

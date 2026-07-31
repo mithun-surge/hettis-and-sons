@@ -1,0 +1,47 @@
+---
+import { mediaUrl } from '../../lib/strapi';
+import type { HeroBlock } from '../../lib/types';
+
+interface Props {
+  hero: HeroBlock;
+}
+const { hero } = Astro.props as Props;
+const cta = hero.buttons?.[0];
+---
+
+<section class="cine cine-hero">
+  <div class="cine-hero-frame">
+    <div class="cine-hero-img cine-kenburns">
+      <img src={mediaUrl(hero.image)} alt={hero.image?.alternativeText || ''} />
+    </div>
+    <div class="noise-overlay"></div>
+    <div class="cine-hero-gradient"></div>
+
+    <div class="cine-hero-content">
+      <div class="cine-hero-main">
+        {hero.eyebrow && <span class="eyebrow">{hero.eyebrow}</span>}
+        <h1 class="cine-hero-heading split-reveal">
+          {hero.heading}<span class="cine-star" data-no-split>*</span>
+        </h1>
+      </div>
+      <div class="cine-hero-side">
+        {hero.lead && <p class="cine-hero-lead">{hero.lead}</p>}
+        {cta && (
+          <a href={cta.href} class="cine-btn btn">
+            {cta.label}
+            <span class="cine-btn-circle">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+        )}
+      </div>
+      {hero.stats?.length > 0 && (
+        <div class="cine-hero-stats">
+          {hero.stats.map((s) => (
+            <div class="stat"><div class="n">{s.value}</div><div class="l">{s.label}</div></div>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</section>

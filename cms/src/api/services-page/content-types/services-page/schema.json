@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "services_pages",
+  "info": {
+    "singularName": "services-page",
+    "pluralName": "services-pages",
+    "displayName": "Services Page"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": { "type": "component", "component": "blocks.page-hero", "repeatable": false },
+    "heroImage": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "creamIntro": { "type": "component", "component": "blocks.cream-block", "repeatable": false },
+    "howItWorksEyebrow": { "type": "string" },
+    "howItWorksHeading": { "type": "string" },
+    "howItWorksLead": { "type": "text" },
+    "steps": { "type": "component", "component": "blocks.step", "repeatable": true },
+    "faqEyebrow": { "type": "string" },
+    "faqHeading": { "type": "string" },
+    "ctaDark": { "type": "component", "component": "blocks.cta-dark", "repeatable": false },
+    "seo": { "type": "component", "component": "shared.seo", "repeatable": false }
+  }
+}

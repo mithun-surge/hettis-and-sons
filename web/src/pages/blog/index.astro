@@ -1,0 +1,31 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import BlogCard from '../../components/blog/BlogCard.astro';
+import '../../styles/blog.css';
+import { fetchAPI } from '../../lib/strapi';
+import type { BlogPage, BlogPost } from '../../lib/types';
+
+const blogPage = await fetchAPI<BlogPage>('/blog-page', {
+  populate: { hero: { populate: '*' }, seo: { populate: '*' } },
+});
+const posts = (await fetchAPI<BlogPost[]>('/blog-posts', { sort: 'publishDate:desc', populate: '*' })) || [];
+
+if (!blogPage) {
+  return new Response('Blog page content not found in Strapi', { status: 404 });
+}
+---
+
+<MainLayout title={blogPage.seo?.metaTitle || 'Blog'} description={blogPage.seo?.metaDescription}>
+  <main>
+    <PageHero hero={blogPage.hero} />
+
+    <section class="section">
+      <div class="wrap">
+        <div class="grid blog-grid">
+          {posts.map((p) => <BlogCard {...p} />)}
+        </div>
+      </div>
+    </section>
+  </main>
+</MainLayout>
