@@ -1,16 +1,24 @@
-import type { Core } from '@strapi/strapi';
+export default ({ env }: { env: (key: string, defaultValue?: string) => string | undefined }) => {
+  const corsOrigins = env('CORS_ORIGINS', 'http://localhost:4321')!
+    .split(',')
+    .map((o) => o.trim())
+    .filter(Boolean);
 
-const config: Core.Config.Middlewares = [
-  'strapi::logger',
-  'strapi::errors',
-  'strapi::security',
-  'strapi::cors',
-  'strapi::poweredBy',
-  'strapi::query',
-  'strapi::body',
-  'strapi::session',
-  'strapi::favicon',
-  'strapi::public',
-];
-
-export default config;
+  return [
+    'strapi::logger',
+    'strapi::errors',
+    'strapi::security',
+    {
+      name: 'strapi::cors',
+      config: {
+        origin: corsOrigins,
+      },
+    },
+    'strapi::poweredBy',
+    'strapi::query',
+    'strapi::body',
+    'strapi::session',
+    'strapi::favicon',
+    'strapi::public',
+  ];
+};
