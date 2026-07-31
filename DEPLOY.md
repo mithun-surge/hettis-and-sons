@@ -1,80 +1,57 @@
-# Deploying to Railway
+# Deployed on Railway
 
-Architecture: **Strapi (CMS) runs only on Railway**, backed by **Railway Postgres** (the single database — no separate local DB after migration), with a **Railway Volume** so uploaded media persists. The **Astro site** runs both locally (dev) and on Railway (production) — both always point at the same live Railway Strapi URL, so there is exactly one CMS and one set of images, edited only through the Railway-hosted Strapi admin panel from now on.
+**Live URLs** (project: Surge Hackathon, environment: Mithun):
+- CMS admin: https://cms-mithun.up.railway.app/admin (log in with your existing local admin credentials — the account was migrated)
+- CMS API: https://cms-mithun.up.railway.app/api
+- Site: https://web-mithun.up.railway.app
 
-## 0. One-time local tooling (already done on this machine)
-`git`, `gh` (GitHub CLI), and `railway` (Railway CLI) are installed via winget/npm.
+Architecture: **Strapi (CMS) runs only on Railway**, backed by **Railway Postgres** (`Postgres-9ig6` — the single database; local Postgres is no longer used). Uploaded media lives on a **Railway Volume** attached to the CMS service. Both local Astro dev (`web/.env` → `PUBLIC_STRAPI_URL`) and the deployed Astro site point at the same live Railway CMS, so there is exactly one CMS and one set of images. **Edit content only through the Railway-hosted Strapi admin panel** — do not run Strapi locally against a separate database.
 
-## 1. You: log in (interactive — must be done by you, not automatable)
-Run these yourself in a terminal (VS Code's terminal is fine):
+## How each service is configured
+
+Both services were created with `railway add --repo mithun-surge/hettis-and-sons --branch main` and configured via `railway api` (GraphQL) since some settings aren't exposed by simpler CLI commands:
+
+**cms**
+- Root directory: `cms`
+- Build: `npm install && npm run build`
+- Start: `npm run start`
+- Volume `cms-volume` mounted at `/app/public` (not `/app/public/uploads` — see note below), size 50GB cap
+- Domain: `cms-mithun.up.railway.app`, target port 1337
+- Variables: `NODE_ENV=production`, `PORT=1337`, `HOST=::`, `DATABASE_CLIENT=postgres`, `DATABASE_URL=${{Postgres-9ig6.DATABASE_URL}}`, `DATABASE_SSL=false`, `PUBLIC_URL`, `CORS_ORIGINS` (includes both the web domain and `http://localhost:4321`), and the same `APP_KEYS`/`JWT_SECRET`/`API_TOKEN_SALT`/`ADMIN_JWT_SECRET`/`TRANSFER_TOKEN_SALT`/`ENCRYPTION_KEY` as the original local `.env` (kept identical so the migrated admin session/data stays valid — never regenerate these).
+
+**web**
+- Root directory: `web`
+- Build: `npm install && npm run build`
+- Start: `node ./dist/server/entry.mjs`
+- Domain: `web-mithun.up.railway.app`, target port 4321
+- Variables: `NODE_ENV=production`, `PORT=4321`, `HOST=::`, `PUBLIC_STRAPI_URL=https://cms-mithun.up.railway.app`
+
+**Why `HOST=::` and explicit `PORT`**: Railway's edge proxy on this project's infrastructure needed the app listening on the IPv6 any-address and a `PORT` matching the domain's configured target port — without both, requests reached the edge fine (confirmed via `railway logs --network`) but got a 502 rather than being proxied through.
+
+**Why the volume mounts at `/app/public` and not `/app/public/uploads`**: `railway volume files upload <dir> <remote>` always nests the upload under the source folder's basename (uploading `cms/public/uploads` to `/` lands files at `/uploads/...` on the volume, not at `/`). Rather than fight that, the volume's mount path was set to `/app/public` so the nested `/uploads` folder resolves to exactly where Strapi's local upload provider expects it (`public/uploads/`).
+
+## Migrating data (already done once)
+
+The original local database + uploaded files were migrated into Railway with:
 ```powershell
-gh auth login
-railway login
+# dump local DB
+& "C:\Program Files\PostgreSQL\18\bin\pg_dump.exe" -h 127.0.0.1 -p 5432 -U mithun -d postgres -F p --no-owner --no-privileges -f dump.sql
+
+# wipe Railway's DB (it had auto-seeded itself with broken image-less placeholder content on first boot)
+psql -h hayabusa.proxy.rlwy.net -p 35333 -U postgres -d railway -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
+
+# restore
+psql -h hayabusa.proxy.rlwy.net -p 35333 -U postgres -d railway -f dump.sql
+
+# upload the actual image files onto the volume
+railway volume --service cms --volume <volume-id> files upload "cms\public\uploads" "/" --overwrite
 ```
-`gh auth login` opens a browser to authorize the CLI against your GitHub account (`mithun-surge`). `railway login` does the same for your Railway account. Once both say "Logged in as ...", let me know and I'll continue.
+Railway's Postgres public connection details (host/port/password) are visible in the `Postgres-9ig6` service's Variables tab (`DATABASE_PUBLIC_URL`) if this ever needs to be redone.
 
-Then link this local checkout to your existing Railway project:
-```powershell
-cd "C:\Users\Mithun Hettige\Desktop\Hackathon Project"
-railway link
-# select project: the one at
-# https://railway.com/project/4a7da534-609f-4304-a70a-c3803902ae7a
-```
+## Deploying changes going forward
 
-## 2. GitHub repo
-Once logged in, I'll run:
-```powershell
-gh repo create mithun-surge/hettis-and-sons --public --source=. --remote=origin --push
-```
-This creates the repo, adds it as `origin`, and pushes the `main` branch with the initial commit already made.
+Auto-deploy on `git push` to `main` is enabled on both services (Settings → Source shows the repo connected with "Auto deploys when pushed to GitHub"). Earlier in setup this connection was broken ("GitHub Repo not found") and both services had to be deployed manually with `railway up --service <cms|web>` from inside that service's folder — that resolved itself, but **if a future push doesn't trigger a deploy, fall back to `railway up`** from the relevant folder rather than waiting.
 
-## 3. Railway services (dashboard steps)
-In the existing Railway project/environment:
+## Known trade-off
 
-1. **Postgres** — if not already provisioned in that project, add a Postgres database plugin from the Railway dashboard ("+ New" → Database → PostgreSQL).
-2. **CMS service** — "+ New" → GitHub Repo → select `hettis-and-sons` → after creation, in Settings:
-   - **Root Directory**: `cms`
-   - **Build Command**: `npm install && npm run build`
-   - **Start Command**: `npm run start`
-   - **Volume**: attach a Volume, mount path `/app/public/uploads` (persists uploaded media across deploys — without this, every redeploy wipes all images)
-   - **Variables** (copy these from your current local `cms/.env` so the migrated database's existing admin user/sessions stay valid — do not regenerate them):
-     ```
-     NODE_ENV=production
-     DATABASE_CLIENT=postgres
-     DATABASE_URL=${{Postgres.DATABASE_URL}}
-     DATABASE_SSL=false
-     APP_KEYS=yg7/k3O7B9FeXhIbPsj8HQ==,g8ShzF7n1UM+CNFzv/IXQQ==,JS72AKTy/ESxehZO7N3f+g==,skk6YNvLeiUGOtcQBuoWtA==
-     API_TOKEN_SALT=sG4KJLQXVFXKGZLmrwu2ww==
-     ADMIN_JWT_SECRET=if11fHkSueWiT7jhsad5SA==
-     JWT_SECRET=d0mE86wMooUy7ITVZbOB7g==
-     TRANSFER_TOKEN_SALT=ltn/U6cMPNnVhEbinwamZg==
-     ENCRYPTION_KEY=8h9RbgP6dN4zHDtFy0bD2A==
-     CORS_ORIGINS=http://localhost:4321,https://<web-service-domain>.up.railway.app
-     ```
-     (`${{Postgres.DATABASE_URL}}` is Railway's reference-variable syntax — it auto-fills from the Postgres plugin, no need to type a real connection string.)
-   - After first deploy, go to Settings → Networking → **Generate Domain** to get its public URL, then set `PUBLIC_URL=https://<that-domain>` as an additional variable and redeploy.
-3. **Web service** — "+ New" → GitHub Repo → same repo again → Settings:
-   - **Root Directory**: `web`
-   - **Build Command**: `npm install && npm run build`
-   - **Start Command**: `node ./dist/server/entry.mjs`
-   - **Variables**:
-     ```
-     NODE_ENV=production
-     PUBLIC_STRAPI_URL=https://<cms-service-domain>.up.railway.app
-     ```
-   - Generate its own public domain the same way, then go back and update the CMS service's `CORS_ORIGINS` to include it.
-
-## 4. Migrate the existing local data (one-time)
-Once the CMS service is deployed (even before content looks right), we point a one-time migration at Railway's Postgres:
-1. Dump the local database: `pg_dump` the local `postgres` DB.
-2. Restore it into Railway's Postgres (via `railway connect Postgres` or the connection string from the Postgres service's Variables tab).
-3. Copy the local `cms/public/uploads/` folder's contents into the Railway Volume (via `railway run` / Railway's shell, or a one-off script) so the migrated database's image references resolve correctly.
-
-I'll drive this step with you once the Postgres service exists and I have its connection details via `railway variables`.
-
-## 5. Point local Astro dev at the live CMS
-Update `web/.env`:
-```
-PUBLIC_STRAPI_URL=https://<cms-service-domain>.up.railway.app
-```
-From then on, `npm run dev` in `web/` talks to the same live Railway CMS as production — no local Strapi needed. Content edits happen only in the Railway Strapi admin panel at `https://<cms-service-domain>.up.railway.app/admin`.
+Local dev and production now share one database. Destructive local habits used during development (`TRUNCATE`-and-reseed to test schema changes) must never be run against this shared database — any future Strapi schema change needs a real migration plan, not a wipe-and-reseed.
