@@ -865,6 +865,7 @@ const READ_TYPES = [
   'blog-page',
   'team-page',
   'gallery-page',
+  'test-page',
 ];
 
 const READ_FIND_ONLY_TYPES = ['service', 'listing', 'testimonial', 'faq', 'blog-post', 'team-member'];

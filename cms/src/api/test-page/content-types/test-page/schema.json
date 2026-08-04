@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "test_pages",
+  "info": {
+    "singularName": "test-page",
+    "pluralName": "test-pages",
+    "displayName": "Test Page",
+    "description": "Learning example: image + heading + paragraph + button"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": { "type": "string", "required": true },
+    "paragraph": { "type": "text" },
+    "image": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "button": { "type": "component", "component": "shared.button", "repeatable": false }
+  }
+}
