@@ -1000,6 +1000,38 @@ export interface ApiTeamPageTeamPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiTestPageTestPage extends Struct.SingleTypeSchema {
+  collectionName: 'test_pages';
+  info: {
+    description: 'Learning example: image + heading + paragraph + button';
+    displayName: 'Test Page';
+    pluralName: 'test-pages';
+    singularName: 'test-page';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'shared.button', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::test-page.test-page'
+    > &
+      Schema.Attribute.Private;
+    paragraph: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
   collectionName: 'testimonials';
   info: {
@@ -1570,6 +1602,7 @@ declare module '@strapi/strapi' {
       'api::site-setting.site-setting': ApiSiteSettingSiteSetting;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
       'api::team-page.team-page': ApiTeamPageTeamPage;
+      'api::test-page.test-page': ApiTestPageTestPage;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
