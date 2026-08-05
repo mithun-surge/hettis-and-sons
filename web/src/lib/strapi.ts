@@ -38,6 +38,10 @@ export async function fetchAPI<T = any>(path: string, params: Record<string, any
   }
 }
 
+export function clearCache() {
+  cache.clear();
+}
+
 export async function postAPI(path: string, data: Record<string, any>) {
   const url = `${STRAPI_URL}/api${path}`;
   const res = await fetch(url, {
