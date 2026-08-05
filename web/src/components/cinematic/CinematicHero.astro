@@ -12,7 +12,15 @@ const cta = hero.buttons?.[0];
 <section class="cine cine-hero">
   <div class="cine-hero-frame">
     <div class="cine-hero-img cine-kenburns">
-      <img src={mediaUrl(hero.image)} alt={hero.image?.alternativeText || ''} />
+      <img
+        src={mediaUrl(hero.image)}
+        alt={hero.image?.alternativeText || ''}
+        width={hero.image?.width}
+        height={hero.image?.height}
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
     </div>
     <div class="noise-overlay"></div>
     <div class="cine-hero-gradient"></div>
