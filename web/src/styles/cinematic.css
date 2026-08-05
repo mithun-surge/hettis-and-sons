@@ -1,18 +1,18 @@
 /* ---------- Cinematic scope (Home hero/about/features only) ---------- */
 .cine {
-  background: #050505;
-  color: #e7e3d2;
-  font-family: 'Almarai', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: var(--ink);
+  color: var(--mist);
+  font-family: var(--body);
 }
 .cine-accent {
-  font-family: 'Instrument Serif', serif;
+  font-family: var(--display);
   font-style: italic;
 }
 .cine .eyebrow {
-  color: #cfc9a8;
+  color: var(--gold);
 }
 .cine .eyebrow::before {
-  background: #cfc9a8;
+  background: var(--gold);
 }
 
 /* ---------- Noise textures ---------- */
@@ -60,7 +60,7 @@
   height: 100%;
   border-radius: 1.25rem;
   overflow: hidden;
-  background: #000;
+  background: var(--ink);
 }
 @media (min-width: 768px) {
   .cine-hero-frame {
@@ -114,26 +114,26 @@
   gap: 1.8rem 2.4rem;
   margin-top: 0.4rem;
   padding-top: 1.2rem;
-  border-top: 1px solid rgba(231, 227, 210, 0.16);
+  border-top: 1px solid rgba(231, 239, 231, 0.16);
 }
 .cine-hero-stats .n {
   font-weight: 700;
   font-size: clamp(1.1rem, 2vw, 1.5rem);
-  color: #e7e3d2;
+  color: var(--mist);
 }
 .cine-hero-stats .l {
   font-family: var(--mono);
   font-size: 0.66rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #9d9880;
+  color: var(--muted);
   margin-top: 0.15rem;
 }
 .cine-hero-heading {
   font-weight: 500;
   line-height: 0.92;
   letter-spacing: -0.03em;
-  color: #e7e3d2;
+  color: var(--mist);
   font-size: clamp(2.6rem, 9vw, 7rem);
   margin: 0;
 }
@@ -148,7 +148,7 @@
   max-width: 42ch;
 }
 .cine-hero-lead {
-  color: rgba(231, 227, 210, 0.7);
+  color: rgba(231, 239, 231, 0.7);
   font-size: clamp(0.85rem, 1.1vw, 1rem);
   line-height: 1.4;
 }
@@ -156,8 +156,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6em;
-  background: #e7e3d2;
-  color: #0a0a0a;
+  background: var(--gold);
+  color: var(--ink);
   font-weight: 700;
   font-size: 0.95rem;
   padding: 0.4em 0.4em 0.4em 1.4em;
@@ -172,8 +172,8 @@
   width: 2.4rem;
   height: 2.4rem;
   border-radius: 50%;
-  background: #0a0a0a;
-  color: #e7e3d2;
+  background: var(--ink);
+  color: var(--gold);
   display: grid;
   place-items: center;
   flex: none;
@@ -188,7 +188,7 @@
   padding: clamp(4rem, 9vw, 7.5rem) 0;
 }
 .cine-about-card {
-  background: #101010;
+  background: var(--pine);
   border-radius: 1.5rem;
   padding: clamp(2.4rem, 6vw, 5rem) clamp(1.4rem, 5vw, 3rem);
   max-width: 1200px;
@@ -200,7 +200,7 @@
   font-size: 0.72rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #cfc9a8;
+  color: var(--gold);
 }
 .cine-about-heading {
   font-weight: 400;
@@ -208,13 +208,14 @@
   line-height: 0.98;
   max-width: 46ch;
   margin: 1.2rem auto 2rem;
+  color: var(--mist);
 }
 .cine-about-body {
   max-width: 62ch;
   margin: 0 auto 1.8rem;
   font-size: clamp(0.85rem, 1.1vw, 1.02rem);
   line-height: 1.7;
-  color: #dedbc8;
+  color: rgba(231, 239, 231, 0.8);
 }
 .cine-about-card .cine-btn {
   margin-inline: auto;
@@ -249,9 +250,10 @@
   font-size: clamp(1.3rem, 3vw, 2.2rem);
   line-height: 1.15;
   margin: 0;
+  color: var(--ink);
 }
 .cine-features-head .line-2 {
-  color: #6b6b6b;
+  color: var(--muted);
 }
 .cine-card-grid {
   position: relative;
@@ -278,7 +280,7 @@
   min-height: 18rem;
 }
 .cine-card--image {
-  background: #000;
+  background: var(--ink);
 }
 .cine-card--image img {
   width: 100%;
@@ -295,11 +297,11 @@
   z-index: 2;
   padding: 1.4rem;
   font-weight: 700;
-  color: #e7e3d2;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: var(--mist);
+  background: linear-gradient(to top, rgba(20, 36, 28, 0.75), transparent);
 }
 .cine-card--service {
-  background: #212121;
+  background: var(--pine);
   padding: 1.6rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -326,12 +328,12 @@
   font-weight: 700;
   font-size: 1.08rem;
   margin: 0;
-  color: #e7e3d2;
+  color: var(--mist);
 }
 .cine-card-title .num {
   font-family: var(--mono);
   font-size: 0.72rem;
-  color: #7a7a7a;
+  color: var(--muted);
 }
 .cine-card-checklist {
   list-style: none;
@@ -346,13 +348,13 @@
   align-items: flex-start;
   gap: 0.55em;
   font-size: 0.86rem;
-  color: #a3a3a3;
+  color: rgba(231, 239, 231, 0.65);
 }
 .cine-card-checklist svg {
   flex: none;
   width: 16px;
   height: 16px;
-  color: #dedbc8;
+  color: var(--gold);
   margin-top: 2px;
 }
 .cine-card-more {
@@ -361,7 +363,7 @@
   gap: 0.4em;
   font-weight: 600;
   font-size: 0.86rem;
-  color: #e7e3d2;
+  color: var(--gold);
   margin-top: auto;
 }
 .cine-card-more svg {
@@ -384,7 +386,7 @@
    Services page cinematic scope (.svc-cine)
    ========================================================= */
 .svc-cine {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-family: var(--body);
 }
 
 /* ---------- Services hero ---------- */
@@ -393,8 +395,8 @@
   height: 80vh;
   min-height: 520px;
   overflow: hidden;
-  background: #000;
-  color: #fff;
+  background: var(--ink);
+  color: var(--mist);
 }
 .svc-hero-img {
   position: absolute;
@@ -413,7 +415,7 @@
 .svc-hero-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.15) 45%, rgba(0, 0, 0, 0.75) 100%);
+  background: linear-gradient(to bottom, rgba(20, 36, 28, 0.4) 0%, rgba(20, 36, 28, 0.15) 45%, rgba(20, 36, 28, 0.8) 100%);
 }
 .svc-hero-content {
   position: relative;
@@ -427,20 +429,20 @@
   padding: 0 1.2rem clamp(2.4rem, 6vw, 4rem);
 }
 .svc-hero-content .eyebrow {
-  color: #cfc9a8;
+  color: var(--gold);
   justify-content: center;
 }
 .svc-hero-heading {
   font-weight: 500;
   line-height: 1.05;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--mist);
   font-size: clamp(2.2rem, 6vw, 4.4rem);
   max-width: 20ch;
   margin: 0.6rem 0 1rem;
 }
 .svc-hero-text {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(231, 239, 231, 0.75);
   font-size: clamp(0.9rem, 1.1vw, 1.05rem);
   max-width: 52ch;
   line-height: 1.5;
@@ -448,8 +450,8 @@
 
 /* ---------- Cream intro block ---------- */
 .svc-cream {
-  background: #f6e4cf;
-  color: #321c04;
+  background: var(--mist);
+  color: var(--ink);
   padding: clamp(3.5rem, 8vw, 6rem) 1.5rem;
 }
 .svc-cream-top {
@@ -480,23 +482,23 @@
   letter-spacing: 0.06em;
 }
 .svc-pill-dark {
-  background: #321c04;
-  color: #fff9f2;
+  background: var(--pine);
+  color: var(--mist);
 }
 .svc-pill-muted {
-  background: #d9c4aa;
-  color: #321c04;
+  background: var(--paper);
+  color: var(--ink);
   transition: background 0.2s ease;
 }
 .svc-pill-muted:hover {
-  background: #ceba9e;
+  background: #ece9df;
 }
 .svc-pill-icon {
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  background: #fff9f2;
-  color: #321c04;
+  background: var(--paper);
+  color: var(--pine);
   display: grid;
   place-items: center;
   flex: none;
@@ -516,24 +518,25 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #d9c4aa;
+  background: var(--forest);
+  opacity: 0.35;
   flex: none;
 }
 .svc-divider .line {
   flex: 1;
   height: 2px;
-  background: #d9c4aa;
+  background: var(--forest);
+  opacity: 0.35;
 }
 .svc-cream-bottom {
   max-width: 1100px;
   margin: 0 auto;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1.6rem;
-  padding: 3rem 0;
+  padding: 100px 0;
 }
 @media (min-width: 768px) {
   .svc-cream-bottom {
@@ -577,8 +580,8 @@
 
 /* ---------- Services showcase (sticky nav + scrolling cards) ---------- */
 .svc-showcase {
-  background: #0a0a0a;
-  color: #fff;
+  background: var(--ink);
+  color: var(--mist);
   padding: clamp(2.5rem, 6vw, 4rem) 1.2rem clamp(4rem, 8vw, 6rem);
 }
 @media (min-width: 1024px) {
@@ -625,15 +628,15 @@
   text-align: left;
   padding: 0.75em 1em;
   border-radius: 0.7rem;
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.4);
+  background: rgba(231, 239, 231, 0.08);
+  color: rgba(231, 239, 231, 0.45);
   font-size: 0.92rem;
   font-weight: 500;
   transition: background 0.2s ease, color 0.2s ease;
 }
 .svc-nav-btn.is-active {
-  background: rgba(255, 255, 255, 0.16);
-  color: #fff;
+  background: rgba(224, 163, 58, 0.18);
+  color: var(--gold);
 }
 .svc-showcase-cta {
   display: none;
@@ -645,7 +648,7 @@
   }
 }
 .svc-showcase-cta p {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(231, 239, 231, 0.6);
   font-size: 0.9rem;
   margin: 0 0 1rem;
 }
@@ -655,7 +658,7 @@
   gap: 1.4rem;
 }
 .svc-card {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(231, 239, 231, 0.06);
   backdrop-filter: blur(6px);
   border-radius: 1.5rem;
   padding: 1.5rem;
@@ -676,7 +679,7 @@
   aspect-ratio: 16 / 9;
   border-radius: 1rem;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(20, 36, 28, 0.4);
   margin: 1rem 0 1.2rem;
 }
 .svc-card-media img {
@@ -700,7 +703,7 @@
   display: flex;
   gap: 0.6em;
   align-items: flex-start;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(231, 239, 231, 0.65);
   font-size: 0.92rem;
   line-height: 1.5;
 }
@@ -709,5 +712,5 @@
   width: 16px;
   height: 16px;
   margin-top: 3px;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--gold);
 }

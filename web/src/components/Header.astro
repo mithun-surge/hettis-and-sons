@@ -34,7 +34,7 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
 
     <nav class="primary-nav" id="primaryNav" aria-label="Primary">
       <div class="menu-head">
-        <span class="brand">
+        <a class="brand" href="/" aria-label={`${siteName} home`}>
           <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
             <rect width="48" height="48" rx="12" fill="#2D6A4F"></rect>
             <path d="M8 34c4-6 9-9 16-9s12 3 16 9" stroke="#A9D3BC" stroke-width="2" stroke-linecap="round"></path>
@@ -43,7 +43,7 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
             <circle cx="24" cy="20" r="1.7" fill="#E0A33A"></circle>
           </svg>
           <span>{siteName}<small>{tagline}</small></span>
-        </span>
+        </a>
         <button class="menu-close" id="menuClose" aria-label="Close menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
         </button>
