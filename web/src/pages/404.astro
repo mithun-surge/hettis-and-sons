@@ -1,0 +1,46 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import ContourOverlay from '../components/ContourOverlay.astro';
+import Button from '../components/Button.astro';
+import '../styles/notfound.css';
+
+Astro.response.status = 404;
+---
+
+<MainLayout title="Page not found — Hetti's & Sons" description="This page doesn't exist, may have moved, or hasn't been planted yet.">
+  <main>
+    <section class="notfound-section">
+      <ContourOverlay variant="phero" />
+      <div class="wrap notfound-inner">
+        <div class="notfound-numbers reveal">
+          <span class="n">4</span>
+          <span class="notfound-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <rect width="48" height="48" rx="12" fill="#1B4332"></rect>
+              <path d="M8 34c4-6 9-9 16-9s12 3 16 9" stroke="#40916C" stroke-width="2" stroke-linecap="round"></path>
+              <path d="M11 29c3.4-4.6 7.4-7 13-7s9.6 2.4 13 7" stroke="#6FB68F" stroke-width="2" stroke-linecap="round"></path>
+              <path d="M14.5 24.5c2.7-3.4 5.7-5.2 9.5-5.2s6.8 1.8 9.5 5.2" stroke="#A9D3BC" stroke-width="2" stroke-linecap="round"></path>
+              <path d="M24 20c0-4 .4-7 3.6-9.4-.6 3.2.4 5 2.2 6.6" stroke="#E0A33A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <circle cx="24" cy="20" r="1.7" fill="#E0A33A"></circle>
+            </svg>
+          </span>
+          <span class="n">4</span>
+        </div>
+
+        <h1 class="split-reveal">This field hasn't been planted yet.</h1>
+        <p class="lead reveal">
+          The page you're looking for doesn't exist, may have moved, or is still growing. Let's get you back to solid ground.
+        </p>
+
+        <div class="notfound-actions reveal">
+          <Button label="Back to home" href="/" style="gold" />
+          <a href="/contact" class="btn btn-ghost">Contact us</a>
+        </div>
+
+        <p class="notfound-back reveal">
+          Looking for something specific? Try <a href="/services">Services</a> or <a href="/listings">Listings</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+</MainLayout>

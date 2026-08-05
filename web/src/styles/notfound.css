@@ -1,0 +1,92 @@
+.notfound-section {
+  position: relative;
+  min-height: calc(100vh - 74px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.notfound-section .contour-overlay {
+  position: absolute;
+  inset: 0;
+  color: var(--forest);
+  opacity: 0.1;
+}
+.notfound-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 640px;
+  width: 100%;
+}
+.notfound-numbers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+.notfound-numbers .n {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(4.5rem, 12vw, 8rem);
+  line-height: 1;
+  color: var(--pine);
+  opacity: 0.16;
+  user-select: none;
+}
+.notfound-mark {
+  width: clamp(72px, 10vw, 110px);
+  height: clamp(72px, 10vw, 110px);
+  flex: none;
+  animation: notfound-float 3.2s ease-in-out infinite;
+}
+.notfound-mark svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 12px 24px rgba(20, 36, 28, 0.18));
+}
+@keyframes notfound-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-3deg);
+  }
+}
+.notfound-inner h1 {
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  margin-bottom: 0.9rem;
+}
+.notfound-inner .lead {
+  margin-inline: auto;
+  margin-bottom: clamp(1.8rem, 4vw, 2.4rem);
+}
+.notfound-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-bottom: clamp(1.6rem, 3vw, 2.2rem);
+}
+.notfound-back {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.notfound-back a {
+  color: var(--forest);
+  font-weight: 600;
+}
+.notfound-back a:hover {
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .notfound-mark {
+    animation: none;
+  }
+}
