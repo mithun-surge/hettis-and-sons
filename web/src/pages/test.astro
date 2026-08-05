@@ -1,0 +1,33 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Button from '../components/Button.astro';
+import { fetchAPI, mediaUrl } from '../lib/strapi';
+import type { TestPage } from '../lib/types';
+
+const testPage = await fetchAPI<TestPage>('/test-page', { populate: '*' });
+
+if (!testPage) {
+  return new Response('Test page content not found in Strapi', { status: 404 });
+}
+---
+
+<MainLayout title={testPage.heading}>
+  <main>
+    <section class="section">
+      <div class="wrap" style="max-width: 640px; text-align: center;">
+        {testPage.image && (
+          <img
+            src={mediaUrl(testPage.image)}
+            alt={testPage.image.alternativeText || ''}
+            style="width: 100%; border-radius: 12px; margin-bottom: 2rem;"
+          />
+        )}
+        <h1>{testPage.heading}</h1>
+        {testPage.paragraph && <p class="lead" style="margin: 1rem 0 2rem;">{testPage.paragraph}</p>}
+        {testPage.button && (
+          <Button label={testPage.button.label} href={testPage.button.href} style={testPage.button.style} />
+        )}
+      </div>
+    </section>
+  </main>
+</MainLayout>

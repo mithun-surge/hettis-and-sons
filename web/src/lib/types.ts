@@ -232,6 +232,13 @@ export interface TeamPage {
   seo?: SeoBlock;
 }
 
+export interface TestPage {
+  heading: string;
+  paragraph?: string;
+  image?: StrapiMedia;
+  button?: ButtonBlock;
+}
+
 export interface GalleryPage {
   hero: PageHeroBlock;
   intro?: string;
